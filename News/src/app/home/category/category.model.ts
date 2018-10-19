@@ -1,4 +1,4 @@
-import {News} from '../home/news/news.model';
+import {News} from '../news/news.model';
 
 export class Category {
   public name: string;

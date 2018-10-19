@@ -1,0 +1,9 @@
+
+<div class="col-sm-2">
+  <app-category (categorySelected)="onCategoryHandler($event)"
+  (firstCategory)="firstCategoryHandler($event)"></app-category>
+</div>
+<div class="col-xs-10">
+  <app-news [category]="categorySelectedObj"
+  [categoryDefault]="firstCategoryDefault"></app-news>
+</div>

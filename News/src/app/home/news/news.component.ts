@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Category} from '../category/category.model';
 
 @Component({
   selector: 'app-news',
@@ -6,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  @Input() category: Category;
+  @Input() categoryDefault: Category;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onCategorySelected(){
   }
 }
 
