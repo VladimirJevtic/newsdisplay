@@ -9,7 +9,6 @@ import {News} from '../news/news.model';
 })
 export class CategoryComponent implements OnInit {
   @Output() categorySelected = new EventEmitter<Category>();
-  @Output() firstCategory = new EventEmitter<Category>();
 
   categories: Category[] = [
     new Category('Sport', [
