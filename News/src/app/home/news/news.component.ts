@@ -12,4 +12,8 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCategorySelected(){
+  }
 }
+
+

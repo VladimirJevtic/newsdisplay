@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Category} from './category.model';
+import {News} from '../home/news/news.model';
 
 @Component({
   selector: 'app-category',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  @Output() categorySelected = new EventEmitter<Category>();
 
+  categories: Category[] = [
+    new Category('Sport', [
+      new News('Basketball', 'This is a Basketball text'),
+      new News('Football', 'This is a Football text')
+    ] ),
+    new Category('Fun',  [
+      new News('Game', 'This is a Game text'),
+      new News('Show', 'This is a Show text')
+    ])
+  ];
   constructor() { }
 
   ngOnInit() {
   }
 
+  showNews(category: Category) {
+    this.categorySelected.emit(category);
+  }
 }
+
+
+//
