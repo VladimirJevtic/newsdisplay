@@ -1,13 +1,23 @@
 import {NgModule} from '@angular/core';
 import {DropdownDirective} from './dropdown.directive';
 import {CommonModule} from '@angular/common';
+import {NewsComponent} from './news/news.component';
+import {CategoryComponent} from './category/category.component';
+
+const COMPONENTS = [
+  NewsComponent,
+  CategoryComponent
+];
+
 @NgModule({
   declarations: [
-    DropdownDirective
+    DropdownDirective,
+    ...COMPONENTS
   ],
   exports: [
     DropdownDirective,
-    CommonModule
+    CommonModule,
+    ...COMPONENTS
   ]
 })
 export class SharedModule {
