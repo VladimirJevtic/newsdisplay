@@ -7,7 +7,8 @@ import {HeaderComponent} from './header/header.component';
 import { CategoryComponent } from './home/category/category.component';
 import { HomeComponent } from './home/home.component';
 import {NewsComponent} from './home/news/news.component';
-import { SigninComponent } from './auth/signin/signin/signin.component';
+import {AuthModule} from './auth/auth.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { SigninComponent } from './auth/signin/signin/signin.component';
     HeaderComponent,
     CategoryComponent,
     NewsComponent,
-    HomeComponent,
-    SigninComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

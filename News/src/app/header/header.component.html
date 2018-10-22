@@ -2,9 +2,19 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <h2>News Header</h2>
+      <div class="dropdown" appDropdown>
+        <a style="cursor: pointer" class="dropdown-toggle" role="button"> <h3>Cities <span class="caret"></span></h3></a>
+          <ul class="dropdown-menu">
+            <li><a style="cursor: pointer">Beograd</a></li>
+            <li><a style="cursor: pointer">Novi Sad</a></li>
+            <li><a style="cursor: pointer">Sabac</a></li>
+          </ul>
+      </div>
     </div>
     <ul class="navbar-header navbar-right">
-      <a class="list-group-item" style="cursor: pointer"><h3>Login</h3></a>
+      <a class="list-group-item" style="cursor: pointer" routerLink="/signin">
+        <h3>Login</h3>
+      </a>
     </ul>
   </div>
 </nav>
