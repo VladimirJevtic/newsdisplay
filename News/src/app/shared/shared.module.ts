@@ -14,6 +14,9 @@ const COMPONENTS = [
     DropdownDirective,
     ...COMPONENTS
   ],
+  imports: [
+    CommonModule
+  ],
   exports: [
     DropdownDirective,
     CommonModule,
