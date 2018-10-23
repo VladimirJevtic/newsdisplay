@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 // import {NewsComponent} from './shared/news/news.component';
 import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [

@@ -8,7 +8,6 @@ import { Category } from 'src/app/shared/category/category.model';
 })
 export class AdminNewsEditComponent implements OnInit {
 
-  @Input() firs
 
 
   constructor() { }

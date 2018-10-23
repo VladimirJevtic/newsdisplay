@@ -5,7 +5,7 @@ import { AdminNewsEditComponent } from 'src/app/admin/admin-news-edit/admin-news
 
 const adminRoute: Routes = [
   {path: '', component: AdminComponent, children: [
-     {path: '', component: AdminNewsEditComponent}
+     {path: '', component: AdminComponent}
   ]
 }
 ];
