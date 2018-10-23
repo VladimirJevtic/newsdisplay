@@ -8,12 +8,19 @@ import { Category } from 'src/app/shared/category/category.model';
 })
 export class AdminNewsEditComponent implements OnInit {
 
-
+  categorySelectedObj: Category;
+  firstCategoryDefault: Category;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onCategoryHandler(category: Category) {
+    this.categorySelectedObj = category;
+  }
+  firstCategoryHandler(categoryDefault: Category) {
+    this.firstCategoryDefault = categoryDefault;
+  }
 
 }
