@@ -23,8 +23,7 @@ import {AdminModule} from './admin/admin.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule,
-    AdminModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
