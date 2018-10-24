@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 import { AdminNewsService } from './admin-news/admin-news.service';
 import { AdminFormComponent } from './admin-form/admin-form.component';
+import {NewsService} from '../shared/news.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AdminFormComponent } from './admin-form/admin-form.component';
     AdminRoutingModule,
     SharedModule
   ],
-  providers: [AdminNewsService]
+  providers: [AdminNewsService,
+  NewsService]
 })
 export class AdminModule {}

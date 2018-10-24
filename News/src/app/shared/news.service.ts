@@ -17,7 +17,6 @@ export class NewsService {
     return this.categories.slice();
   }
 
-  getNewsFromCategory(category: Category, newsId: number) {
-    return category.newsArray[newsId];
+  getNewsFromCategory(id: number) {
   }
 }

@@ -7,6 +7,7 @@ import {HeaderComponent} from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
+import {NewsService} from './shared/news.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {SharedModule} from './shared/shared.module';
     AuthModule,
     SharedModule
   ],
-  providers: [],
+  providers: [NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

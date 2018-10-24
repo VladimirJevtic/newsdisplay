@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/shared/category/category.model';
 
@@ -9,9 +9,9 @@ import { Category } from 'src/app/shared/category/category.model';
 })
 export class AdminNewsComponent implements OnInit {
 
+  @Output() adminNewsEmitter = new EventEmitter<Category>();
   categorySelectedObj: Category;
   firstCategoryDefault: Category;
-
   constructor(
     private router: Router
   ) { }
@@ -25,7 +25,6 @@ export class AdminNewsComponent implements OnInit {
   firstCategoryHandler(categoryDefault: Category) {
     this.firstCategoryDefault = categoryDefault;
   }
-
   goToNewsProfile(id: number) {
     this.router.navigate(['admin', 'news', id]);
   }
