@@ -1,5 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Category} from '../shared/category/category.model';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-admin',

@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './admin.component';
-import { AdminNewsEditComponent } from 'src/app/admin/admin-news-edit/admin-news-edit.component';
+import { AdminNewsComponent } from 'src/app/admin/admin-news/admin-news.component';
 import {AdminFormComponent} from './admin-form/admin-form.component';
 
 const adminRoute: Routes = [
   {path: '', component: AdminComponent, children: [
-     { path: '', redirectTo: 'list'},
-      { path: 'list', component: AdminNewsEditComponent},
-      { path: 'edit', component: AdminFormComponent}
+     { path: '', redirectTo: 'news/list'},
+      { path: 'news/list', component: AdminNewsComponent},
+      { path: 'news/:id', component: AdminFormComponent}
   ]
 }
 ];

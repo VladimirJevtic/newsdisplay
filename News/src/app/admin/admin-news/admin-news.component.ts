@@ -1,17 +1,20 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/shared/category/category.model';
 
 @Component({
   selector: 'app-admin-news-edit',
-  templateUrl: './admin-news-edit.component.html',
-  styleUrls: ['./admin-news-edit.component.css']
+  templateUrl: './admin-news.component.html',
+  styleUrls: ['./admin-news.component.css']
 })
-export class AdminNewsEditComponent implements OnInit {
+export class AdminNewsComponent implements OnInit {
 
   categorySelectedObj: Category;
   firstCategoryDefault: Category;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -21,6 +24,10 @@ export class AdminNewsEditComponent implements OnInit {
   }
   firstCategoryHandler(categoryDefault: Category) {
     this.firstCategoryDefault = categoryDefault;
+  }
+
+  goToNewsProfile(id: number) {
+    this.router.navigate(['admin', 'news', id]);
   }
 
 }

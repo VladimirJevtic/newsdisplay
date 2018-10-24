@@ -9,6 +9,7 @@ import {News} from '../news/news.model';
 })
 export class CategoryComponent implements OnInit {
   @Output() categorySelected = new EventEmitter<Category>();
+  constructor() { }
 
   categories: Category[] = [
     new Category('Sport', [
@@ -20,8 +21,6 @@ export class CategoryComponent implements OnInit {
       new News('Show', 'This is a Show text')
     ])
   ];
-
-  constructor() { }
 
   ngOnInit() {
     if (this.categories.length) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-admin-form',
   templateUrl: './admin-form.component.html',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminFormComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
