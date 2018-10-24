@@ -1,8 +1,8 @@
 <div class="col-xs-12">
     <ul class="list-group">
       <li class="list-group-item"
-          *ngFor="let category of categories"
+          *ngFor="let category of categoryList"
           (click)="showNews(category)"
-      >{{ category.name }}</li>
+      >{{ category }}</li>
     </ul>
 </div>

@@ -8,6 +8,7 @@ const adminRoute: Routes = [
   {path: '', component: AdminComponent, children: [
      { path: '', redirectTo: 'news/list'},
       { path: 'news/list', component: AdminNewsComponent},
+      { path: 'news/create', component: AdminFormComponent},
       { path: 'news/:id', component: AdminFormComponent}
   ]
 }

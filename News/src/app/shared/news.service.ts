@@ -3,18 +3,23 @@ import {News} from './news/news.model';
 
 export class NewsService {
 
-  categories: Category[] = [
-    new Category('Sport', [
-      new News('Basketball', 'This is a Basketball text'),
-      new News('Football', 'This is a Football text')
-    ] ),
-    new Category('Fun',  [
-      new News('Game', 'This is a Game text'),
-      new News('Show', 'This is a Show text')
-    ])
+  news: News[] = [
+    new News(0, 'Basketball', 'Basketball Description', 'This is Basketball Text', 'Sport', 'Beograd'),
+    new News(1, 'Football', 'Football Description', 'This is Football Text', 'Sport', 'Beograd'),
+    new News(2, 'Game', 'Game Description', 'This is Game Text', 'Fun', 'Beograd'),
+    new News(3, 'Show', 'Show Description', 'This is Show Text', 'Fun', 'Beograd')
   ];
+
+  getCities() {
+    // GET poziv za cities
+    return ['Beograd', 'Novi Sad', 'Sabac'];
+  }
+  getNews() {
+    return this.news.slice();
+  }
   getCategories() {
-    return this.categories.slice();
+    // GET poziv za category
+    return ['Sport', 'Fun'];
   }
 
   getNewsFromCategory(id: number) {

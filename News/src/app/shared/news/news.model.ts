@@ -1,20 +1,29 @@
 export class News {
- // public id_news: number;
+  public newsID: number;
   public title: string;
+  public description: string;
   public text: string;
+  public category: string;
+  public city: string;
   // public date: string;
   // public active: boolean;
 
   constructor(
-              //id_news: number,
+              newsID: number,
               title: string,
+              description: string,
               text: string,
+              category: string,
+              city: string
               // date: string,
               // active: boolean
   ) {
-    //this.id_news = id_news;
+    this.newsID = newsID;
     this.title = title;
+    this.description = description;
     this.text = text;
+    this.category = category;
+    this.city = city;
     // this.date = date;
     // this.active = active;
   }

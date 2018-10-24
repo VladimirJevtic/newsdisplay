@@ -6,22 +6,21 @@ import {NewsService} from '../news.service';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css'],
-  providers: [NewsService]
+  styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  @Output() categorySelected = new EventEmitter<Category>();
+  @Output() categorySelected = new EventEmitter<string>();
+  categoryList = [];
   constructor(private newService: NewsService) { }
 
-  categories: Category[] = this.newService.getCategories();
-
   ngOnInit() {
-    if (this.categories.length) {
-      this.categorySelected.emit(this.categories[0]);
+    this.categoryList = this.newService.getCategories();
+    if (this.categoryList.length) {
+      this.categorySelected.emit(this.categoryList[0]);
     }
   }
 
-  showNews(category: Category) {
+  showNews(category: string) {
     this.categorySelected.emit(category);
   }
 }

@@ -6,18 +6,17 @@ import {Category} from '../shared/category/category.model';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  categorySelectedObj: Category;
-  firstCategoryDefault: Category;
+  categorySelectedObj: string;
+  firstCategoryDefault: string;
   constructor() { }
 
   ngOnInit() {
-
   }
 
-  onCategoryHandler(category: Category) {
+  onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
   }
-  firstCategoryHandler(categoryDefault: Category) {
+  firstCategoryHandler(categoryDefault: string) {
     this.firstCategoryDefault = categoryDefault;
   }
 }
