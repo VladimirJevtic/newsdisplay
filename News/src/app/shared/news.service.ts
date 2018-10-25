@@ -22,6 +22,6 @@ export class NewsService {
     return ['Sport', 'Fun'];
   }
 
-  getNewsFromCategory(id: number) {
+  getNewsFromCategory(category: string) {
   }
 }

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from 'src/app/shared/category/category.model';
+import { News } from 'src/app/shared/news/news.model';
+import { NewsService } from 'src/app/shared/news.service';
 
 @Component({
   selector: 'app-admin-news-edit',
@@ -9,20 +10,24 @@ import { Category } from 'src/app/shared/category/category.model';
 })
 export class AdminNewsComponent implements OnInit {
 
-  @Output() adminNewsEmitter = new EventEmitter<Category>();
-  categorySelectedObj: Category;
-  firstCategoryDefault: Category;
+  @Output() adminNewsEmitter = new EventEmitter<string>();
+  categorySelectedObj: string;
+  firstCategoryDefault: string;
+
+  news: News[] = [];
+
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private newsService: NewsService) { }
 
   ngOnInit() {
+    this.news = this.newsService.getNews();
   }
 
-  onCategoryHandler(category: Category) {
+  onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
   }
-  firstCategoryHandler(categoryDefault: Category) {
+  firstCategoryHandler(categoryDefault: string) {
     this.firstCategoryDefault = categoryDefault;
   }
   goToNewsProfile(id: number) {

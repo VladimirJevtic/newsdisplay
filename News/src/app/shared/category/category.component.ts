@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Category} from './category.model';
 import {News} from '../news/news.model';
 import {NewsService} from '../news.service';
 

@@ -9,14 +9,14 @@ export class News {
   // public active: boolean;
 
   constructor(
-              newsID: number,
-              title: string,
-              description: string,
-              text: string,
-              category: string,
-              city: string
-              // date: string,
-              // active: boolean
+      newsID: number,
+      title: string,
+      description: string,
+      text: string,
+      category: string,
+      city: string
+      // date: string,
+      // active: boolean
   ) {
     this.newsID = newsID;
     this.title = title;
