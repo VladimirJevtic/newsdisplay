@@ -1,13 +1,12 @@
-import {Category} from './category/category.model';
 import {News} from './news/news.model';
 
 export class NewsService {
 
   news: News[] = [
-    new News(0, 'Basketball', 'Basketball Description', 'This is Basketball Text', 'Sport', 'Beograd'),
-    new News(1, 'Football', 'Football Description', 'This is Football Text', 'Sport', 'Beograd'),
-    new News(2, 'Game', 'Game Description', 'This is Game Text', 'Fun', 'Beograd'),
-    new News(3, 'Show', 'Show Description', 'This is Show Text', 'Fun', 'Beograd')
+    new News({ id: 0, title: 'Basketball', description: 'Basketball Description', text: 'This is Basketball Text', category: 'Sport', city: 'Beograd'}),
+    new News({id: 1, title: 'Football', description: 'Football Description', text: 'This is Football Text', category: 'Sport', city: 'Beograd'}),
+    new News({id: 2, title: 'Game', description: 'Game Description', text: 'This is Game Text', category: 'Fun', city: 'Beograd'}),
+    new News({id: 3, title: 'Show', description: 'Show Description', text: 'This is Show Text', category: 'Fun', city: 'Beograd'})
   ];
 
   getCities() {

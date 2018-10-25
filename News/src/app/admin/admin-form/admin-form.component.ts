@@ -16,11 +16,14 @@ enum Type {
   styleUrls: ['./admin-form.component.css']
 })
 export class AdminFormComponent implements OnInit {
-  news: News = new News('', '', '', '', '');
+  news: News = new News(
+    {title: '',
+    description: '',
+    text: ''}
+    );
   id: string;
   type: Type = Type.CREATE;
   adminForm: FormGroup;
-  // news = new News();
 
   constructor(private route: ActivatedRoute,
   private newService: NewsService) { }
@@ -32,7 +35,6 @@ export class AdminFormComponent implements OnInit {
       'text': new FormControl(this.news.text, Validators.required)
     });
     this.subscribeToRoute();
-    
     // this.getAllCategories();
   }
 
@@ -50,7 +52,7 @@ export class AdminFormComponent implements OnInit {
   onSubmit() {
     console.log(this.adminForm);
   }
-  // private getAllCategories() {
+   private getAllCategories() {
   // get all categories
-  // }
+   }
 }
