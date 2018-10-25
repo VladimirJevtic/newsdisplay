@@ -12,7 +12,6 @@ export class AdminNewsComponent implements OnInit {
 
   @Output() adminNewsEmitter = new EventEmitter<string>();
   categorySelectedObj: string;
-  firstCategoryDefault: string;
 
   news: News[] = [];
 
@@ -24,11 +23,12 @@ export class AdminNewsComponent implements OnInit {
     this.news = this.newsService.getNews();
   }
 
+  disableNews(id: number) {
+    // GET request po ID da promeni active true u false
+  }
+
   onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
-  }
-  firstCategoryHandler(categoryDefault: string) {
-    this.firstCategoryDefault = categoryDefault;
   }
   goToNewsProfile(id: number) {
     this.router.navigate(['admin', 'news', id]);

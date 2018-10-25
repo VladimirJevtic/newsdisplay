@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Category} from '../shared/category/category.model';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +14,5 @@ export class HomeComponent implements OnInit {
 
   onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
-  }
-  firstCategoryHandler(categoryDefault: string) {
-    this.firstCategoryDefault = categoryDefault;
   }
 }

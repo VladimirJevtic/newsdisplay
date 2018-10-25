@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {News} from '../../shared/news/news.model';
 import {NewsService} from '../../shared/news.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -26,7 +26,8 @@ export class AdminFormComponent implements OnInit {
   adminForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-  private newService: NewsService) { }
+  private newService: NewsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.adminForm = new FormGroup({
@@ -35,7 +36,6 @@ export class AdminFormComponent implements OnInit {
       'text': new FormControl(this.news.text, Validators.required)
     });
     this.subscribeToRoute();
-    // this.getAllCategories();
   }
 
   private subscribeToRoute() {
@@ -44,15 +44,22 @@ export class AdminFormComponent implements OnInit {
         this.id = params['id'];
         if (this.id) {
           this.type = Type.UPDATE;
-          // get news by id
+          // get news by ID
+
         }
       });
   }
 
   onSubmit() {
-    console.log(this.adminForm);
+    if (this.type === Type.CREATE) {
+
+      // saljemo POST
+       this.router.navigate(['admin', 'news', 'list']);
+      console.log('create');
+    } else {
+      console.log('update');
+      this.router.navigate(['admin', 'news', 'list']);
+      // saljemo PUT request
+    }
   }
-   private getAllCategories() {
-  // get all categories
-   }
 }

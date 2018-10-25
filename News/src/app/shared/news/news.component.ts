@@ -16,16 +16,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.news = this.newsService.getNews();
-    //this.filterNewsByCategory();
-  }
 
-  // filterNewsByCategory() {
-  //   
-  // }
-  getAllCategories() {
-    // for (let singleNew of this.news){
-    //   this.categories.push();
-    // }
   }
 
 }
