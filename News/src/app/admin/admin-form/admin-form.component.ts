@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {News} from '../../shared/news/news.model';
 import {NewsService} from '../../shared/news.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 enum Type {
   CREATE = 'create',
@@ -14,16 +16,23 @@ enum Type {
   styleUrls: ['./admin-form.component.css']
 })
 export class AdminFormComponent implements OnInit {
-  news: News;
+  news: News = new News('', '', '', '', '');
   id: string;
   type: Type = Type.CREATE;
+  adminForm: FormGroup;
   // news = new News();
 
   constructor(private route: ActivatedRoute,
   private newService: NewsService) { }
 
   ngOnInit() {
+    this.adminForm = new FormGroup({
+      'title': new FormControl(this.news.title, Validators.required),
+      'description': new FormControl(this.news.description, Validators.required),
+      'text': new FormControl(this.news.text, Validators.required)
+    });
     this.subscribeToRoute();
+    
     // this.getAllCategories();
   }
 
@@ -31,17 +40,16 @@ export class AdminFormComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
-
-        if (this.id === 'create') {
-            // POST News to backend
-        } else {
+        if (this.id) {
           this.type = Type.UPDATE;
-          // get News from Api by ID
+          // get news by id
         }
-      }
-    );
+      });
   }
 
+  onSubmit() {
+    console.log(this.adminForm);
+  }
   // private getAllCategories() {
   // get all categories
   // }

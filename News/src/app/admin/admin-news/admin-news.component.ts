@@ -34,4 +34,8 @@ export class AdminNewsComponent implements OnInit {
     this.router.navigate(['admin', 'news', id]);
   }
 
+  goToCreate() {
+    this.router.navigate(['admin', 'news', 'create']);
+  }
+
 }
