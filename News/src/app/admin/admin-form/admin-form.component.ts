@@ -4,37 +4,22 @@ import {News} from '../../shared/news/news.model';
 import {NewsService} from '../../shared/news.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
-enum Type {
-  CREATE = 'create',
-  UPDATE = 'update'
-}
-
 @Component({
   selector: 'app-admin-form',
   templateUrl: './admin-form.component.html',
   styleUrls: ['./admin-form.component.css']
 })
 export class AdminFormComponent implements OnInit {
-  news: News = new News(
-    {title: '',
-    description: '',
-    text: ''}
-    );
+  
   id: string;
-  type: Type = Type.CREATE;
+  editForm = false;
   adminForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-  private newService: NewsService,
+              private newService: NewsService,
               private router: Router) { }
 
   ngOnInit() {
-    this.adminForm = new FormGroup({
-      'title': new FormControl(this.news.title, Validators.required),
-      'description': new FormControl(this.news.description, Validators.required),
-      'text': new FormControl(this.news.text, Validators.required)
-    });
     this.subscribeToRoute();
   }
 
@@ -43,21 +28,43 @@ export class AdminFormComponent implements OnInit {
       (params: Params) => {
         this.id = params['id'];
         if (this.id) {
-          this.type = Type.UPDATE;
+          this.editForm = true;
           // get news by ID
-
+          this.initForm();
         }
-      });
+        else{
+          this.initForm();
+        }
+      }
+    );
+  }
+
+  private initForm() {
+    let newsTitle = '';
+    let newsDescription = '';
+    let newsText = '';
+
+    if(this.editForm){
+      const singleNews = this.newService.getSingleNews(this.id);
+      newsTitle = singleNews.title;
+      newsDescription = singleNews.description;
+      newsText = singleNews.text;
+    }
+
+    this.adminForm = new FormGroup({
+      'title': new FormControl(newsTitle, Validators.required),
+      'description': new FormControl(newsDescription, Validators.required),
+      'text': new FormControl(newsText, Validators.required)
+    });
   }
 
   onSubmit() {
-    if (this.type === Type.CREATE) {
-
-      // saljemo POST
+    if (this.editForm) {
+      this.newService.updateSingleNews(this.id, this.adminForm.value);
        this.router.navigate(['admin', 'news', 'list']);
-      console.log('create');
+       // saljemo POST request
     } else {
-      console.log('update');
+      this.newService.addSingleNews(this.adminForm.value);
       this.router.navigate(['admin', 'news', 'list']);
       // saljemo PUT request
     }

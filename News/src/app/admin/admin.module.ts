@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AdminComponent } from './admin.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
@@ -14,6 +14,7 @@ import {NewsService} from '../shared/news.service';
     AdminFormComponent,
   ],
   imports: [
+    FormsModule,
     ReactiveFormsModule,
     AdminRoutingModule,
     SharedModule

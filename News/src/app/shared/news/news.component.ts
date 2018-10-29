@@ -15,10 +15,16 @@ export class NewsComponent implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.news = this.newsService.getNews();
+    this.newsService.newsChanged
+      .subscribe(
+        (news: News[]) => {
+          this.news = news;
+        }
+      );
+     this.news = this.newsService.getNews();
 
   }
-
+ 
 }
 
 

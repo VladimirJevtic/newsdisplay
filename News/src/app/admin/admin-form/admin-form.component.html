@@ -38,7 +38,10 @@
             class="help-block">Please enter a text!</span>
           </div>
       </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button 
+        class="btn btn-success" 
+        type="submit"
+        [disabled]="!adminForm.valid">Save</button>
       </form>
     </div>
   </div>

@@ -10,6 +10,7 @@ import {NewsService} from '../news.service';
 export class CategoryComponent implements OnInit {
   @Output() categorySelected = new EventEmitter<string>();
   categoryList = [];
+  
   constructor(private newService: NewsService) { }
 
   ngOnInit() {
@@ -19,7 +20,8 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  showNews(category: string) {
-    this.categorySelected.emit(category);
+  showNewsByCategory(category: string) {
+    //this.categorySelected.emit(category);
+    console.log(category);
   }
 }
