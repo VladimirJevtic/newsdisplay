@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common';
 import {NewsComponent} from './news/news.component';
 import {CategoryComponent} from './category/category.component';
 import {NewsService} from './news.service';
+import { MysqlService } from 'src/app/shared/mysql.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const COMPONENTS = [
   NewsComponent,
@@ -16,14 +18,16 @@ const COMPONENTS = [
     ...COMPONENTS
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     DropdownDirective,
     CommonModule,
+    HttpClientModule,
     ...COMPONENTS
   ],
-  providers: [NewsService]
+  providers: [NewsService, MysqlService]
 })
 export class SharedModule {
 

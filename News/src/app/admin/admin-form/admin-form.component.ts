@@ -3,6 +3,9 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {News} from '../../shared/news/news.model';
 import {NewsService} from '../../shared/news.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MysqlService } from 'src/app/shared/mysql.service';
+import { Response } from '@angular/http/src/static_response';
+import { log } from 'util';
 
 @Component({
   selector: 'app-admin-form',
@@ -17,9 +20,11 @@ export class AdminFormComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private newService: NewsService,
+              private mysqlService: MysqlService,
               private router: Router) { }
 
   ngOnInit() {
+    this.mysqlService.getAll().subscribe(data => console.log(data));
     this.subscribeToRoute();
   }
 
@@ -62,11 +67,17 @@ export class AdminFormComponent implements OnInit {
     if (this.editForm) {
       this.newService.updateSingleNews(this.id, this.adminForm.value);
        this.router.navigate(['admin', 'news', 'list']);
-       // saljemo POST request
+       // saljemo PUT request
     } else {
       this.newService.addSingleNews(this.adminForm.value);
+      this.mysqlService.storeNews(this.adminForm.value)
+          .subscribe(
+              // (response: Response) => {
+              //   console.log(response);
+              // }
+            );
       this.router.navigate(['admin', 'news', 'list']);
-      // saljemo PUT request
+      // saljemo POST request
     }
   }
 }
