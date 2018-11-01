@@ -1,6 +1,7 @@
  <div class="row">
   <div class="col-xs-12" 
   *ngFor="let singleNews of news">
+  <img [src]="singleNews.pathToPicture">
     <h2>{{ singleNews.title }}</h2>
     <h5>{{ singleNews.text }}</h5>
   </div>

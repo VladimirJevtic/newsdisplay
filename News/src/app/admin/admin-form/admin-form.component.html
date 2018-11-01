@@ -64,7 +64,13 @@
                 type="text" 
                 id="pathToPicture"
                 formControlName="pathToPicture" 
-                class="form-control">
+                class="form-control"
+                #pathToPicture>
+                <div class="row">
+                  <div class="col-xs-12">
+                      <img [src]="pathToPicture.value" class="img-responsive">
+                  </div>
+                </div>
               <span 
                 *ngIf="!adminForm.get('pathToPicture').valid && adminForm.get('pathToPicture').touched" 
                 class="help-block">Please enter an URL path to picture!</span>
