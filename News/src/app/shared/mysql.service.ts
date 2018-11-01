@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { News } from "src/app/shared/news/news.model";
-import { HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { News } from 'src/app/shared/news/news.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class MysqlService {
@@ -20,19 +20,20 @@ export class MysqlService {
         //     })
         //   };
 
-        const data = {
-            title: 'dasdasa',
-            description: 'aafafafaf',
-            text: 'asdas',
-            stringDate: '12-12-2012',
-            category: 'srdas',
-            city: 'sdasd',
-            pathToPicture: 'asdasdsdsda'
-        }
-        
+        // const data = {
+        //     title: 'dasdasa',
+        //     description: 'aafafafaf',
+        //     text: 'asdas',
+        //     stringDate: '12-12-2012',
+        //     category: 'srdas',
+        //     city: 'sdasd',
+        //     pathToPicture: 'asdasdsdsda'
+        // };
+
         return this.http.post(
-            'http://localhost:8080/news/add?title=dsadasdasd&description=asdasda&text=asdasd&stringDate=12-12-2012&category=asdasd&city=asdas&pathToPicture=asdasds',
-             data,
+            'http://localhost:8080/news/add?title='+ news.title +'&description='+ news.description +'&text='+ news.text+'&stringDate='+ news.date+'&category='+ news.category+'&city='+ news.city+'&pathToPicture='+ news.pathToPicture + '',
+            //  ',
+             news,
              { responseType: 'text' });
     }
 

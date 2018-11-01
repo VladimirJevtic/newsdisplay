@@ -10,9 +10,6 @@ import {map} from 'rxjs/operators'
 export class NewsComponent implements OnInit {
   @Input() defaultCategoryFromCategory: string;
   @Input() categorySelectedFromCategory: string;
-  images = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw']
   news: News[];
 
   constructor(private newsService: NewsService) { }
@@ -26,7 +23,7 @@ export class NewsComponent implements OnInit {
       );
 
   }
- 
+
 }
 
 

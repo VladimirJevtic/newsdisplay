@@ -8,9 +8,10 @@ export class News {
   public newsID: number;
   public active: boolean;
   public date: string;
+  public pathToPicture: string;
 
   constructor(data?) {
-    const { title, description, text, category, city, active, date, id } = data;
+    const { title, description, text, category, city, active, date, id, pathToPicture } = data;
     this.title = title;
     this.description = description;
     this.text = text;
@@ -19,6 +20,7 @@ export class News {
     this.newsID = id || null;
     this.active = active || null;
     this.date = date || null;
+    this.pathToPicture = pathToPicture || null;
     // this.date = date;
     // this.active = active;
   }

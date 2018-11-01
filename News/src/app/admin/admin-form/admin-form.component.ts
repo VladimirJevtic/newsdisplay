@@ -48,18 +48,30 @@ export class AdminFormComponent implements OnInit {
     let newsTitle = '';
     let newsDescription = '';
     let newsText = '';
+    let newsDate = '';
+    let newsCategory = '';
+    let newsCity = '';
+    let newsPathToPicture = '';
 
     if(this.editForm){
       const singleNews = this.newService.getSingleNews(this.id);
       newsTitle = singleNews.title;
       newsDescription = singleNews.description;
       newsText = singleNews.text;
+      newsDate = singleNews.date;
+      newsCategory = singleNews.category;
+      newsCity = singleNews.city;
+      newsPathToPicture = singleNews.pathToPicture;
     }
 
     this.adminForm = new FormGroup({
       'title': new FormControl(newsTitle, Validators.required),
       'description': new FormControl(newsDescription, Validators.required),
-      'text': new FormControl(newsText, Validators.required)
+      'text': new FormControl(newsText, Validators.required),
+      'date': new FormControl(newsDate, Validators.required),
+      'category': new FormControl(newsCategory, Validators.required),
+      'city': new FormControl(newsCity, Validators.required),
+      'pathToPicture': new FormControl(newsPathToPicture, Validators.required)
     });
   }
 

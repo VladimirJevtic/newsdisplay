@@ -6,38 +6,82 @@
           <div>
             <label for="title">News Title</label>
             <input 
-            type="text" 
-            id="title" 
-            formControlName="title"
-            class="form-control">
+              type="text" 
+              id="title" 
+              formControlName="title" 
+              class="form-control">
             <span 
-            *ngIf="!adminForm.get('title').valid && adminForm.get('title').touched" 
-            class="help-block">Please enter a title!</span>
+              *ngIf="!adminForm.get('title').valid && adminForm.get('title').touched"
+               class="help-block">Please enter a title!</span>
             </div>
             <div class="form-group">
-            <label for="description">News Description</label>
-            <input 
-            type="text" 
-            id="description" 
-            formControlName="description"
-            class="form-control">
-            <span 
-            *ngIf="!adminForm.get('description').valid && adminForm.get('description').touched" 
-            class="help-block">Please enter a description!</span>
+              <label for="description">News Description</label>
+              <input 
+                type="text" 
+                id="description"
+                formControlName="description" 
+                class="form-control">
+              <span 
+                *ngIf="!adminForm.get('description').valid && adminForm.get('description').touched" 
+                class="help-block">Please enter a description!</span>
             </div>
             <div class="form-group">
-            <label for="newsText">News Text</label>
-            <textarea 
-            class="form-control" 
-            name="newsTextArea"
-            formControlName="text" 
-            id="newsText" 
-            rows="10"></textarea>
-            <span 
-            *ngIf="!adminForm.get('text').valid && adminForm.get('text').touched" 
-            class="help-block">Please enter a text!</span>
-          </div>
-      </div>
+              <label for="category">News Category</label>
+              <input 
+                type="text" 
+                id="category"
+                formControlName="category" 
+                class="form-control">
+              <span 
+                *ngIf="!adminForm.get('category').valid && adminForm.get('category').touched" 
+                class="help-block">Please enter a category!</span>
+            </div>
+            <div class="form-group">
+              <label for="city">News City</label>
+              <input 
+                type="text" 
+                id="city"
+                formControlName="city" 
+                class="form-control">
+              <span 
+                *ngIf="!adminForm.get('city').valid && adminForm.get('city').touched" 
+                class="help-block">Please enter a city!</span>
+            </div>
+            <div class="form-group">
+              <label for="date">News Date</label>
+              <input 
+                type="text" 
+                id="date"
+                formControlName="date" 
+                class="form-control">
+              <span 
+                *ngIf="!adminForm.get('date').valid && adminForm.get('date').touched" 
+                class="help-block">Please enter a date!</span>
+            </div>
+            <div class="form-group">
+              <label for="pathToPicture">News Picture</label>
+              <input 
+                type="text" 
+                id="pathToPicture"
+                formControlName="pathToPicture" 
+                class="form-control">
+              <span 
+                *ngIf="!adminForm.get('pathToPicture').valid && adminForm.get('pathToPicture').touched" 
+                class="help-block">Please enter an URL path to picture!</span>
+            </div>
+            <div class="form-group">
+              <label for="newsText">News Text</label>
+              <textarea 
+                class="form-control" 
+                name="newsTextArea" 
+                formControlName="text" 
+                id="newsText" 
+                rows="10"></textarea>
+              <span 
+                *ngIf="!adminForm.get('text').valid && adminForm.get('text').touched" 
+                class="help-block">Please enter a text!</span>
+            </div>
+            </div>
         <button 
         class="btn btn-success" 
         type="submit"
