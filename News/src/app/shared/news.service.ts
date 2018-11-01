@@ -1,24 +1,24 @@
 import {News} from './news/news.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs/internal/Subject';
+import { MysqlService } from 'src/app/shared/mysql.service';
+import { Response } from '@angular/http';
 
 @Injectable()
 export class NewsService {
+
+  constructor(private mysqlService: MysqlService) {}
+
   newsChanged = new Subject<News[]>();
 
-  news: News[] = [
-    new News({id: 0, title: 'Basketball', description: 'Basketball Description', text: 'This is Basketball Text', category: 'Sport', city: 'Beograd'}),
-    new News({id: 1, title: 'Football', description: 'Football Description', text: 'This is Football Text', category: 'Sport', city: 'Beograd'}),
-    new News({id: 2, title: 'Game', description: 'Game Description', text: 'This is Game Text', category: 'Fun', city: 'Beograd'}),
-    new News({id: 3, title: 'Show', description: 'Show Description', text: 'This is Show Text', category: 'Fun', city: 'Beograd'})
-  ];
+  news: News[];
 
   getCities() {
     // GET poziv za cities
     return ['Beograd', 'Novi Sad', 'Sabac'];
   }
   getNews() {
-    return this.news.slice();
+    return this.mysqlService.getAll();
   }
 
   getSingleNews(index: string) {
@@ -30,13 +30,12 @@ export class NewsService {
   }
 
   addSingleNews(singleNews: News) {
-    this.news.push(singleNews);
-    this.newsChanged.next(this.news.slice());
+    this.mysqlService.storeNews(singleNews);
   }
 
   updateSingleNews(index: string, newSingleNews: News) {
     this.news[index] = newSingleNews;
-    this.newsChanged.next(this.news.slice());
+    this.newsChanged.next(this.news);
   }
 
 }

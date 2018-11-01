@@ -19,17 +19,21 @@ export class MysqlService {
         //     //   'Authorization': 'my-auth-token'
         //     })
         //   };
+
         const data = {
-            title: 'dsadasdasda',
-            description: 'dasdasdasda',
-            text: 'dasdasda',
-            category: 'dasdasdasd',
-            city: 'dasdasdasda',
-            pathToPicture: 'dasdasda',
-            active: 'dsadasda',
-            stringData: new Date()
+            title: 'dasdasa',
+            description: 'aafafafaf',
+            text: 'asdas',
+            stringDate: '12-12-2012',
+            category: 'srdas',
+            city: 'sdasd',
+            pathToPicture: 'asdasdsdsda'
         }
-        return this.http.post('http://localhost:8080/news/add', data);
+        
+        return this.http.post(
+            'http://localhost:8080/news/add?title=dsadasdasd&description=asdasda&text=asdasd&stringDate=12-12-2012&category=asdasd&city=asdas&pathToPicture=asdasds',
+             data,
+             { responseType: 'text' });
     }
 
     getData(data) {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {News} from './news.model';
 import {NewsService} from '../news.service';
+import {map} from 'rxjs/operators'
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -9,19 +10,20 @@ import {NewsService} from '../news.service';
 export class NewsComponent implements OnInit {
   @Input() defaultCategoryFromCategory: string;
   @Input() categorySelectedFromCategory: string;
-
-  news: News[] = [];
+  images = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8vO9sju2Z1HZRRsDmsfTbkWb_XB58yJE6aweNPpCIOQx1xRw']
+  news: News[];
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.newsService.newsChanged
+      this.newsService.getNews()
       .subscribe(
-        (news: News[]) => {
-          this.news = news;
+        (response: News[]) => {
+          this.news = response;
         }
       );
-     this.news = this.newsService.getNews();
 
   }
  

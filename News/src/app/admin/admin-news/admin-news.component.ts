@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { News } from 'src/app/shared/news/news.model';
 import { NewsService } from 'src/app/shared/news.service';
 import { MysqlService } from 'src/app/shared/mysql.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-admin-news-edit',
@@ -14,8 +15,7 @@ export class AdminNewsComponent implements OnInit {
   @Output() adminNewsEmitter = new EventEmitter<string>();
   categorySelectedObj: string;
 
-  news: News[] = [];
-  //news: News[];
+  news: News[];
 
   constructor(
     private router: Router,
@@ -23,8 +23,12 @@ export class AdminNewsComponent implements OnInit {
     private mysqlService: MysqlService) { }
 
   ngOnInit() {
-    this.news = this.newsService.getNews();
-    //this.news = this.mysqlService.getAll();
+    this.mysqlService.getAll()
+      .subscribe(
+        (response: News[]) => {
+          this.news = response;
+        }
+      );
   }
 
   disableNews(id: number) {
