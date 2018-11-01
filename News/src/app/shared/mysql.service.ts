@@ -29,10 +29,15 @@ export class MysqlService {
         //     city: 'sdasd',
         //     pathToPicture: 'asdasdsdsda'
         // };
-
         return this.http.post(
-            'http://localhost:8080/news/add?title='+ news.title +'&description='+ news.description +'&text='+ news.text+'&stringDate='+ news.date+'&category='+ news.category+'&city='+ news.city+'&pathToPicture='+ news.pathToPicture + '',
-            //  ',
+            `http://localhost:8080/news/add?title=
+            ${news.title}&description=
+            ${news.description}&text=
+            ${news.text}&stringDate=
+            ${news.date}&category=
+            ${news.category}&city=
+            ${news.city}&pathToPicture=
+            ${news.pathToPicture}'`,
              news,
              { responseType: 'text' });
     }
