@@ -1,5 +1,5 @@
 import {News} from './news/news.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs/internal/Subject';
 import { MysqlService } from 'src/app/shared/mysql.service';
 import { Response } from '@angular/http';
@@ -9,14 +9,10 @@ export class NewsService {
 
   constructor(private mysqlService: MysqlService) {}
 
-  newsChanged = new Subject<News[]>();
+  @Output() newsChanged = new Subject<News[]>();
 
   news: News[];
 
-  getCities() {
-    // GET poziv za cities
-    return ['Beograd', 'Novi Sad', 'Sabac'];
-  }
   getNews() {
     return this.mysqlService.getAll();
   }
@@ -24,9 +20,9 @@ export class NewsService {
   getSingleNews(index: string) {
     return this.news[index];
   }
-  getCategories() {
-    // GET poziv za category
-    return ['Sport', 'Fun'];
+
+  showNewsByCategory(category: string) {
+    return this.mysqlService.getNewsByCategory(category);
   }
 
   addSingleNews(singleNews: News) {

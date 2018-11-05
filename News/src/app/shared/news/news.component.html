@@ -3,6 +3,7 @@
   *ngFor="let singleNews of news">
   <img [src]="singleNews.pathToPicture">
     <h2>{{ singleNews.title }}</h2>
+    <h4>{{ singleNews.category }}</h4>
     <h5>{{ singleNews.text }}</h5>
   </div>
 </div>

@@ -40,11 +40,27 @@ export class MysqlService {
             { responseType: 'text' });
     }
 
-    getData(data) {
-        return this.http.post('https://jsonplaceholder.typicode.com/posts', data);
-    }
+    // getData(data) {
+    //     return this.http.post('https://jsonplaceholder.typicode.com/posts', data);
+    // }
 
     getAll() {
         return this.http.get('http://localhost:8080/news/all');
+    }
+
+    getCities() {
+        return this.http.get('http://localhost:8080/news/cities');
+    }
+
+    getCategoriesByCity(city: string) {
+        return this.http.get(`http://localhost:8080/news/categoriesByCity?city=${city}`);
+    }
+
+    getNewsByCategory(category: string) {
+        return this.http.get(`http://localhost:8080/news/byCategory?category=${category}`);
+    }
+
+    getNewsByCityAndCategory(city: string, category: string) {
+        return this.http.get(`http://localhost:8080/news/cityAndCategory?city=${city}&category=${category}`);
     }
 }

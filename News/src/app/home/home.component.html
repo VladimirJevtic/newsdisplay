@@ -1,7 +1,8 @@
 <div class="col-sm-2">
-  <app-category (categorySelected)="onCategoryHandler($event)"></app-category>
+  <app-category (categorySelected)="onCategoryHandler($event)"
+  (citySelected)="onCityHandler($event)"></app-category>
 </div>
 <div class="col-xs-10">
-  <app-news *ngIf="categorySelectedObj" [categorySelectedFromCategory]="categorySelectedObj"
-  [defaultCategoryFromCategory]="firstCategoryDefault"></app-news>
+  <app-news *ngIf="categorySelectedObj" [categoryInput]="categorySelectedObj"
+  [cityInput]="citySelectedObj"></app-news>
 </div>
