@@ -17,21 +17,20 @@ export class NewsService {
     return this.mysqlService.getAll();
   }
 
-  getSingleNews(index: string) {
-    return this.news[index];
-  }
+  // getSingleNews(index: string) {
+  //   return this.news[index];
+  // }
 
   showNewsByCategory(category: string) {
     return this.mysqlService.getNewsByCategory(category);
   }
 
-  addSingleNews(singleNews: News) {
-    this.mysqlService.storeNews(singleNews);
-  }
+  // addSingleNews(singleNews: News) {
+  //   this.mysqlService.storeNews(singleNews);
+  // }
 
-  updateSingleNews(index: string, newSingleNews: News) {
-    this.news[index] = newSingleNews;
-    this.newsChanged.next(this.news);
-  }
+  // updateSingleNews(newSingleNews: News) {
+    
+  // }
 
 }
