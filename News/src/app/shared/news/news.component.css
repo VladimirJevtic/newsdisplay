@@ -1,5 +1,11 @@
 .box {
-    height:250px;
-    width:400px;
+    height:345px;
+    width:460px;
     overflow:hidden;
 }
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }

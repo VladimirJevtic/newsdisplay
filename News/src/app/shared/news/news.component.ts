@@ -1,23 +1,28 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {News} from './news.model';
-import {NewsService} from '../news.service';
-import {map} from 'rxjs/operators'
 import { MysqlService } from 'src/app/shared/mysql.service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  styleUrls: ['./news.component.css'],
+  providers: [NgbCarouselConfig]
 })
 export class NewsComponent implements OnInit, OnChanges {
   @Input() categoryInput: string;
   @Input() cityInput: string;
 
+   @Input() showNavigationArrows = false;
+   @Input() showNavigationIndicators = false;
 
   news: News[];
 
-  constructor(private newsService: NewsService,
-              private mysqlService: MysqlService) { }
+  constructor(private mysqlService: MysqlService,
+              private config: NgbCarouselConfig) {
+                  config.showNavigationArrows = true;
+                  config.showNavigationIndicators = true;
+               }
 
   ngOnInit() {
   }

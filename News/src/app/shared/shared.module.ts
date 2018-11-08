@@ -6,6 +6,7 @@ import {CategoryComponent} from './category/category.component';
 import {NewsService} from './news.service';
 import { MysqlService } from 'src/app/shared/mysql.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const COMPONENTS = [
   NewsComponent,
@@ -19,7 +20,8 @@ const COMPONENTS = [
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   exports: [
     DropdownDirective,
