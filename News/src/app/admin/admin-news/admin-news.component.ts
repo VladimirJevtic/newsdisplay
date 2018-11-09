@@ -1,4 +1,3 @@
-import { Response } from '@angular/http/src/static_response';
 import { MysqlService } from 'src/app/shared/mysql.service';
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +14,9 @@ export class AdminNewsComponent implements OnInit {
   @Output() adminNewsEmitter = new EventEmitter<string>();
   categorySelectedObj: string;
 
+  id: string;
   news: News[] = [];
+  singleNews = new News({});
 
   constructor(
     private router: Router,
@@ -33,12 +34,17 @@ export class AdminNewsComponent implements OnInit {
 
   disableNews(id: number) {
     // GET request po ID da promeni active true u false
+      // this.news.splice(id, 1);
+      // for(let singleNews of this.news) {
+      //   singleNews.active = false;
+      // }
+      // console.log(this.singleNews);
   }
 
   onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
   }
-  goToNewsProfile(id: number) {
+  goToNewsProfile(id: string) {
     this.router.navigate(['admin', 'news', id]);
   }
 

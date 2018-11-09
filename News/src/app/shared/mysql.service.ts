@@ -54,4 +54,12 @@ export class MysqlService {
     getNewsByCityAndCategory(city: string, category: string) {
         return this.http.get(`http://localhost:8080/news/cityAndCategory?city=${city}&category=${category}`);
     }
+
+    getNewsByTitle(title: string) {
+        return this.http.get(`http://localhost:8080/news/title?title=${title}`);
+    }
+
+    removeNews(id: string) {
+        return this.http.delete(`http://localhost:8080/news/delete?id=${id}`);
+    }
 }

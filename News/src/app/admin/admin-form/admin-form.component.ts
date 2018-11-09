@@ -30,16 +30,18 @@ export class AdminFormComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
-        if (this.id) {
-          this.editForm = true;
-          // get news by ID
+        this.editForm = params['id'] != null;
+        this.initForm();
+        if (this.editForm == true) {
           this.mysqlService.getNewsById(this.id)
-            .subscribe(
-                (response: News) => {
-                  this.singleNews = response;
-                  this.initForm();
-                }
-            );
+          .subscribe(
+              (response: News) => {
+                this.singleNews = response;
+                console.log(this.id);
+                console.log(this.singleNews);
+                this.initForm();
+              }
+          );
         }
         else{
           this.initForm();
@@ -50,16 +52,42 @@ export class AdminFormComponent implements OnInit {
 
   private initForm() {
 
-    this.adminForm = this.formBuilder.group({
-      'title': new FormControl(this.singleNews.title, Validators.required),
-      'description': new FormControl(this.singleNews.description, Validators.required),
-      'text': new FormControl(this.singleNews.text, Validators.required),
-      'date': new FormControl(this.singleNews.date, Validators.required),
-      'category': new FormControl(this.singleNews.category, Validators.required),
-      'city': new FormControl(this.singleNews.city, Validators.required),
-      'pathToPicture': new FormControl(this.singleNews.pathToPicture, Validators.required)
-    });
-    console.log(this.singleNews.title);
+    // this.adminForm = this.formBuilder.group({
+    //   'title': new FormControl(this.singleNews.title, Validators.required),
+    //   'description': new FormControl(this.singleNews.description, Validators.required),
+    //   'text': new FormControl(this.singleNews.text, Validators.required),
+    //   'date': new FormControl(this.singleNews.date, Validators.required),
+    //   'category': new FormControl(this.singleNews.category, Validators.required),
+    //   'city': new FormControl(this.singleNews.city, Validators.required),
+    //   'pathToPicture': new FormControl(this.singleNews.pathToPicture, Validators.required)
+    // });
+    // console.log(this.singleNews.title);
+    let newsTitle = '';
+    let newsDescription = '';
+    let newsText = '';
+    let newsDate = '';
+    let newsCategory = '';
+    let newsCity = '';
+    let newsPathToPicture = '';
+
+      newsTitle = this.singleNews.title;
+      newsDescription = this.singleNews.description;
+      newsText = this.singleNews.text;
+      newsDate = this.singleNews.date;
+      newsCategory = this.singleNews.category;
+      newsCity = this.singleNews.city;
+      newsPathToPicture = this.singleNews.pathToPicture;
+
+
+    this.adminForm = new FormGroup({
+      'title': new FormControl(newsTitle, Validators.required),
+      'description': new FormControl(newsDescription, Validators.required),
+      'text': new FormControl(newsText, Validators.required),
+      'date': new FormControl(newsDate, Validators.required),
+      'category': new FormControl(newsCategory, Validators.required),
+      'city': new FormControl(newsCity, Validators.required),
+      'pathToPicture': new FormControl(newsPathToPicture, Validators.required)
+    })
   }
 
   onSubmit() {
