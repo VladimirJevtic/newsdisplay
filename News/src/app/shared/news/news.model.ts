@@ -15,12 +15,12 @@ export class News {
     this.title = title;
     this.description = description;
     this.text = text;
-    this.category = category || null;
-    this.city = city || null;
-    this.newsID = id || null;
-    this.active = active || null;
-    this.date = date || null;
-    this.pathToPicture = pathToPicture || null;
+    this.category = category;
+    this.city = city;
+    this.newsID = id;
+    this.active = active;
+    this.date = date;
+    this.pathToPicture = pathToPicture;
     // this.date = date;
     // this.active = active;
   }

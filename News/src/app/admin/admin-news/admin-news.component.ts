@@ -14,7 +14,7 @@ export class AdminNewsComponent implements OnInit {
   @Output() adminNewsEmitter = new EventEmitter<string>();
   categorySelectedObj: string;
 
-  id: string;
+
   news: News[] = [];
   singleNews = new News({});
 
@@ -39,13 +39,19 @@ export class AdminNewsComponent implements OnInit {
       //   singleNews.active = false;
       // }
       // console.log(this.singleNews);
+      this.mysqlService.removeNews(id + 1)
+        .subscribe(
+          (response: any) => {
+            this.singleNews = response;
+          }
+        );
   }
 
   onCategoryHandler(category: string) {
     this.categorySelectedObj = category;
   }
-  goToNewsProfile(id: string) {
-    this.router.navigate(['admin', 'news', id]);
+  goToNewsProfile(id: number) {
+    this.router.navigate(['admin', 'news', id + 1]);
   }
 
   goToCreate() {

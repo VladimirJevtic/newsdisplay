@@ -94,10 +94,12 @@ export class AdminFormComponent implements OnInit {
     if (this.editForm) {
       this.mysqlService.updateNews(this.adminForm.value)
           .subscribe(
-            //   (response: any) => {
-                
-            // }
+              (response: any) => {
+                this.singleNews = response;
+                console.log(this.singleNews);
+            }
           );
+          console.log(this.adminForm.value);
           this.router.navigate(['admin', 'news', 'list']);
                 // saljemo PUT request
       

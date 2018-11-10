@@ -59,7 +59,7 @@ export class MysqlService {
         return this.http.get(`http://localhost:8080/news/title?title=${title}`);
     }
 
-    removeNews(id: string) {
+    removeNews(id: number) {
         return this.http.delete(`http://localhost:8080/news/delete?id=${id}`);
     }
 }
