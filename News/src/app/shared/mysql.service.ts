@@ -21,7 +21,8 @@ export class MysqlService {
     }
 
     updateNews(news: News) {
-        return this.http.put(`http://localhost:8080/news/update?title=${news.title}
+        return this.http.put(`http://localhost:8080/news/update?id=${news.newsID}
+        &title=${news.title}
         &description=${news.description}
         &text=${news.text}
         &stringDate=${news.date}
@@ -31,8 +32,12 @@ export class MysqlService {
         { responseType: 'text' });
     }
 
-    getNewsById(id: string) {
+    getNewsById(id: number) {
         return this.http.get(`http://localhost:8080/news/id?id=${id}`);
+    }
+
+    getNewsByCity(city: string) {
+        return this.http.get(`http://localhost:8080/news/city?city=${city}`);
     }
 
     getAll() {

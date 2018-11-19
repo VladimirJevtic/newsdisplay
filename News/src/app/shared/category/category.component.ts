@@ -1,16 +1,14 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output, OnChanges} from '@angular/core';
 import {News} from '../news/news.model';
 import {NewsService} from '../news.service';
 import { MysqlService } from 'src/app/shared/mysql.service';
-import { Response } from '@angular/http/src/static_response';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit, OnChanges {
   @Output() categorySelected = new EventEmitter<string>();
   @Output() citySelected = new EventEmitter<string>();
   categoryList = [];
@@ -27,16 +25,19 @@ export class CategoryComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.cities = response;
-          this.mysqlService.getCategoriesByCity(this.cities[0])
-            .subscribe(
-              (categoryResponse: any) => {
-                this.categoryList = categoryResponse;
-                this.selectedCity = this.cities[0];
-              }
-            );
         }
       );
     
+  }
+
+  ngOnChanges() {
+    this.mysqlService.getNewsByCity(this.cities[0])
+      .subscribe(
+        (response: News[]) => {
+          this.news = response;
+          console.log(response);
+        }
+      );
   }
 
   showCategory(city: string) {
@@ -45,9 +46,11 @@ export class CategoryComponent implements OnInit {
     .subscribe(
       (categoryResponse: any) => {
         this.categoryList = categoryResponse;
+        this.showNews(categoryResponse);
       }
     );
   }
+
 
   showNews(category: string) {
     this.categorySelected.emit(category);

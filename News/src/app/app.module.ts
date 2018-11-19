@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
 import {NewsService} from './shared/news.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {NewsService} from './shared/news.service';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

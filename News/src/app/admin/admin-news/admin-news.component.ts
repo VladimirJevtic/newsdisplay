@@ -33,16 +33,11 @@ export class AdminNewsComponent implements OnInit {
   }
 
   disableNews(id: number) {
-    // GET request po ID da promeni active true u false
-      // this.news.splice(id, 1);
-      // for(let singleNews of this.news) {
-      //   singleNews.active = false;
-      // }
-      // console.log(this.singleNews);
       this.mysqlService.removeNews(id + 1)
         .subscribe(
           (response: any) => {
             this.singleNews = response;
+            //this.news.splice(id + 1, 1);
           }
         );
   }
