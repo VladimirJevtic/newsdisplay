@@ -31,13 +31,6 @@ export class CategoryComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.mysqlService.getNewsByCity(this.cities[0])
-      .subscribe(
-        (response: News[]) => {
-          this.news = response;
-          console.log(response);
-        }
-      );
   }
 
   showCategory(city: string) {

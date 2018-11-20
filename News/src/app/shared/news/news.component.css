@@ -1,11 +1,6 @@
 .box {
-    height:345px;
-    width:460px;
+    height:900px;
+    width:900px;
     overflow:hidden;
 }
 
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }

@@ -1,25 +1,29 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {News} from './news.model';
 import { MysqlService } from 'src/app/shared/mysql.service';
-import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
+  providers: [NgbCarouselConfig]
 })
 export class NewsComponent implements OnInit, OnChanges {
   @Input() categoryInput: string;
   @Input() cityInput: string;
 
-   @Input() showNavigationArrows = false;
-   @Input() showNavigationIndicators = false;
+  showNavigationArrows = false;
+  showNavigationIndicators = false;
 
   news: News[];
 
-  constructor(private mysqlService: MysqlService) {
-                  
-               }
+  constructor(private mysqlService: MysqlService,
+              config: NgbCarouselConfig) {
+
+                config.showNavigationArrows = true;
+                config.showNavigationIndicators = true;
+              }                        
 
   ngOnInit() {
     this.mysqlService.getNewsByCity(this.cityInput)
@@ -29,18 +33,31 @@ export class NewsComponent implements OnInit, OnChanges {
           console.log(response);
         }
       );
+    
   }
 
   ngOnChanges() {
-    this.mysqlService.getNewsByCityAndCategory(this.cityInput, this.categoryInput)
-    .subscribe(
-      (response: any) => {
-        this.news = response;
-        console.log(response);
-      }
-    );
+    this.mysqlService.getNewsByCity(this.cityInput)
+      .subscribe(
+        (response: News[]) => {
+          this.news = response;
+          console.log(response);
+        }
+      );
 
-  }
+  } 
+  // showNewsByCityAndCategory() {
+  // this.mysqlService.getNewsByCityAndCategory(this.cityInput, this.categoryInput)
+  //   .subscribe(
+  //     (response: News[]) => {
+  //       this.news = response;
+  //       console.log(response);
+  //     }
+  //   );
+  // }
+
+  
 }
+
 
 

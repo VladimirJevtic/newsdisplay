@@ -12,26 +12,24 @@
     <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
 </div>
   <hr>
-  <div class="card-body">
-      <ngb-carousel class="carousel slide" tabindex="0" style="display: block;" *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+      <div *ngFor="let singleNews of news">{{ singleNews.title }}</div>
+      <ngb-carousel class="carousel slide" *ngIf="news != []">
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <ng-template ngbSlide *ngFor="let singleNews of news let i = index">
-              <img [src]="singleNews.pathToPicture" class="box" alt="Random slide">
-                <h2>{{ singleNews.title }}</h2>
-                <h4>{{ singleNews.category }}</h4>
+            <div *ngFor="let singleNews of news">
+              <img [src]="singleNews.pathToPicture" class="box">
+                <h3>{{ singleNews.title }}</h3>
                 <h5>{{ singleNews.text }}</h5>
-            </ng-template>
+            </div>
           </div>
         </div>
-    </ngb-carousel>
-</div> -->
+    </ngb-carousel> -->
   
   
-<div style="position: relative;" *ngIf="news != []">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- <div style="position: relative;" *ngIf="news != []">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
         <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let singleNews of news; let i = index" [ngClass]="i == 0 ? 'item active' : 'item'">
+            <div class="carousel-item" *ngFor="let singleNews of news; let i = index" [attr.data-slide-to]="i" [ngClass]="i == 0 ? 'item active' : 'item'">
                 <img [src]="news[i].pathToPicture" class="box">
                 <h3>{{ news[i].title }}</h3>
                 <h5>{{ news[i].text }}</h5>
@@ -47,5 +45,22 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>
+</div> -->
+
+<ngb-carousel *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let singleNews of news">
+          <img [src]="singleNews.pathToPicture" class="box">
+          <div class="carousel-caption">
+            <h3>{{singleNews.title}}</h3>
+            <p>{{singleNews.text}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      
+      <hr>
+      
+      <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+        <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Turn on/off indicators</button>
+      </div>
+
   
