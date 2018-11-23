@@ -4,15 +4,7 @@
     overflow:hidden;
 }
 
-.card-body {
-    height:350px;
-    width:350px;
-    overflow:hidden;
-    position: absolute;
-    left: 50;
-    right: 50;
-    margin: auto;
-}
+
 
 
 

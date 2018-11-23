@@ -37,7 +37,7 @@ export class AdminNewsComponent implements OnInit {
         .subscribe(
           (response: any) => {
             this.singleNews = response;
-            //this.news.splice(id + 1, 1);
+            this.news.splice(id + 1, 1);
           }
         );
   }
