@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, EventEmitter, Output, OnChanges} from '@angular/core';
 import {News} from '../news/news.model';
-import {NewsService} from '../news.service';
 import { MysqlService } from 'src/app/shared/mysql.service';
 
 @Component({
@@ -11,14 +10,14 @@ import { MysqlService } from 'src/app/shared/mysql.service';
 export class CategoryComponent implements OnInit, OnChanges {
   @Output() categorySelected = new EventEmitter<string>();
   @Output() citySelected = new EventEmitter<string>();
+  
   categoryList = [];
   cities: string[];
   selectedCity: string;
 
   @Input() news: News[];
   
-  constructor(private mysqlService: MysqlService,
-              private newsService: NewsService) { }
+  constructor(private mysqlService: MysqlService) { }
 
   ngOnInit() {
     this.mysqlService.getCities()

@@ -9,7 +9,8 @@
               type="text" 
               id="title" 
               formControlName="title" 
-              class="form-control">
+              class="form-control"
+              placeholder="Title">
             <span 
               *ngIf="!adminForm.get('title').valid && adminForm.get('title').touched"
                class="help-block">Please enter a title!</span>
@@ -20,7 +21,8 @@
                 type="text" 
                 id="description"
                 formControlName="description" 
-                class="form-control">
+                class="form-control"
+                placeholder="Description">
               <span 
                 *ngIf="!adminForm.get('description').valid && adminForm.get('description').touched" 
                 class="help-block">Please enter a description!</span>
@@ -31,7 +33,8 @@
                 type="text" 
                 id="category"
                 formControlName="category" 
-                class="form-control">
+                class="form-control"
+                placeholder="Category">
               <span 
                 *ngIf="!adminForm.get('category').valid && adminForm.get('category').touched" 
                 class="help-block">Please enter a category!</span>
@@ -42,7 +45,8 @@
                 type="text" 
                 id="city"
                 formControlName="city" 
-                class="form-control">
+                class="form-control"
+                placeholder="City">
               <span 
                 *ngIf="!adminForm.get('city').valid && adminForm.get('city').touched" 
                 class="help-block">Please enter a city!</span>
@@ -53,7 +57,8 @@
                 type="text" 
                 id="date"
                 formControlName="date" 
-                class="form-control">
+                class="form-control"
+                placeholder="dd-MM-yyyy">
               <span 
                 *ngIf="!adminForm.get('date').valid && adminForm.get('date').touched" 
                 class="help-block">Please enter a date!</span>
@@ -65,6 +70,7 @@
                 id="pathToPicture"
                 formControlName="pathToPicture" 
                 class="form-control"
+                placeholder="Picture URL"
                 #pathToPicture>
                 <div class="row">
                   <div class="col-xs-12">
@@ -79,6 +85,7 @@
               <label for="newsText">News Text</label>
               <textarea 
                 class="form-control" 
+                placeholder="Text"
                 name="newsTextArea" 
                 formControlName="text" 
                 id="newsText" 
