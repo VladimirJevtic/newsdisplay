@@ -20,7 +20,6 @@ export class AdminNewsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private newsService: NewsService,
     private mysqlService: MysqlService) { }
 
   ngOnInit() {
@@ -33,11 +32,12 @@ export class AdminNewsComponent implements OnInit {
   }
 
   disableNews(id: number) {
-      this.mysqlService.removeNews(id + 1)
+      this.mysqlService.removeNews(id)
         .subscribe(
           (response: any) => {
             this.singleNews = response;
-            this.news.splice(id + 1, 1);
+            this.news.splice(id, 1);
+            this.router.navigate(['admin', 'news', 'list']);
           }
         );
   }
@@ -46,7 +46,7 @@ export class AdminNewsComponent implements OnInit {
     this.categorySelectedObj = category;
   }
   goToNewsProfile(id: number) {
-    this.router.navigate(['admin', 'news', id + 1]);
+    this.router.navigate(['admin', 'news', id]);
   }
 
   goToCreate() {

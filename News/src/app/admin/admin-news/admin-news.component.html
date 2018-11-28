@@ -3,13 +3,13 @@
       <div class="btn btn-success float-right" role="button" (click)="goToCreate()">New News
         </div>
     <div class="col-lg-8">
-        <div class="card" *ngFor="let singleNews of news; let id = index">
+        <div class="card" *ngFor="let singleNews of news">
           <img class="card-img-top" [src]="singleNews.pathToPicture">
             <h3 class="card-title">{{singleNews.title}}</h3>
             <p class="card-text">{{ singleNews.text }}</p>
             <p>
-              <a class="btn btn-primary" role="button" (click)="goToNewsProfile(id)">Edit</a>
-              <a class="btn btn-default" role="button" (click)="disableNews(id)">Disable</a>
+              <a class="btn btn-primary" role="button" (click)="goToNewsProfile(singleNews.id)">Edit</a>
+              <a class="btn btn-default" role="button" (click)="disableNews(singleNews.id)">Disable</a>
             </p>
         </div>
     </div>
