@@ -17,7 +17,6 @@ export class NewsComponent implements OnInit, OnChanges {
   showNavigationIndicators = false;
 
   news: News[];
-  news2: News[];
 
   constructor(private mysqlService: MysqlService,
                       config: NgbCarouselConfig) {
@@ -30,16 +29,10 @@ export class NewsComponent implements OnInit, OnChanges {
       .subscribe(
         (response: News[]) => {
           this.news = response;
-          console.log(response);
-          setTimeout( () => {
-            if(this.categoryInput){
-              this.showNewsByCityAndCategory();
-            }
-            },5000)
+          console.log(response); 
         }
       );
-    
-     
+      
   }
 
   ngOnChanges() {
@@ -48,15 +41,11 @@ export class NewsComponent implements OnInit, OnChanges {
         (response: News[]) => {
           this.news = response;
           console.log(response);
-          setTimeout( () => {
             if(this.categoryInput){
               this.showNewsByCityAndCategory();
             }
-            },5000)
         }
-      );
-
-      
+      );   
   }
   
   showNewsByCityAndCategory() {

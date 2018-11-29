@@ -38,7 +38,7 @@ export class CategoryComponent implements OnInit, OnChanges {
     .subscribe(
       (categoryResponse: any) => {
         this.categoryList = categoryResponse;
-        this.showNews(categoryResponse);
+        //this.showNews(categoryResponse);
       }
     );
   }
