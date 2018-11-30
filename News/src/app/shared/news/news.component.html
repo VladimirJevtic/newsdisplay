@@ -8,10 +8,12 @@
   </div>
 </div> -->
 <ngb-carousel *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let singleNews of news">
+        <ng-template ngbSlide *ngFor="let singleNews of news"><h2>{{singleNews.city}}</h2><h4>{{singleNews.category}}</h4>
           <img [src]="singleNews.pathToPicture" class="box">
           <div class="carousel-caption">
-            <h3>{{singleNews.title}}</h3>
+            <h2>{{singleNews.title}}</h2>
+            <hr>
+            <h4>{{singleNews.description}}</h4>
             <p>{{singleNews.text}}</p>
           </div>
         </ng-template>
@@ -21,6 +23,5 @@
       
 <div class="btn-group" role="group" aria-label="Carousel toggle controls">
     <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Turn on/off indicators</button>
-</div>
+</div> 
 
-  
