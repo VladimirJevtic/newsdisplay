@@ -9,6 +9,7 @@
 </div> -->
 <ngb-carousel *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let singleNews of news"><h2>{{singleNews.city}}</h2><h4>{{singleNews.category}}</h4>
+          
           <img [src]="singleNews.pathToPicture" class="box">
           <div class="carousel-caption">
             <h2>{{singleNews.title}}</h2>
@@ -16,6 +17,7 @@
             <h4>{{singleNews.description}}</h4>
             <p>{{singleNews.text}}</p>
           </div>
+          <button type="button" class="btn btn-primary" (click)="show()">Send to email</button>
         </ng-template>
 </ngb-carousel>
       
@@ -25,3 +27,16 @@
     <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Turn on/off indicators</button>
 </div> 
 
+
+  <div class="col-xs-10">
+    <div class="col-sm-3 " >
+      <form [hidden]="!send">
+        <div class="form-group">
+          <label for="username"> Enter your email </label>
+          <input type="text" id="email" name="email" ngModel class="form-control">
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          <span aria-hidden="true"></span>Send</button>
+      </form>
+    </div>
+  </div>

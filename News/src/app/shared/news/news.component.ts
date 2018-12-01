@@ -18,6 +18,8 @@ export class NewsComponent implements OnInit, OnChanges {
 
   news: News[];
 
+  send: boolean;
+
   constructor(private mysqlService: MysqlService,
                       config: NgbCarouselConfig) {
                       config.showNavigationArrows = true;
@@ -57,7 +59,15 @@ export class NewsComponent implements OnInit, OnChanges {
           }
         );
     }
-}
+
+    show() {
+      this.send = true;
+    }
+
+    close() {
+      this.send = false;
+    }
+  }
 
 
 
