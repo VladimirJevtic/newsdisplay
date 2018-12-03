@@ -8,15 +8,14 @@
   </div>
 </div> -->
 <ngb-carousel *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let singleNews of news"><h2>{{singleNews.city}}</h2><h4>{{singleNews.category}}</h4>
-          
-          <img [src]="singleNews.pathToPicture" class="box">
-          <div class="carousel-caption">
+        <ng-template ngbSlide *ngFor="let singleNews of news">
+          <div>
             <h2>{{singleNews.title}}</h2>
             <hr>
             <h4>{{singleNews.description}}</h4>
             <p>{{singleNews.text}}</p>
           </div>
+          <img [src]="singleNews.pathToPicture" class="box">
           <button type="button" class="btn btn-primary" (click)="show()">Send to email</button>
         </ng-template>
 </ngb-carousel>

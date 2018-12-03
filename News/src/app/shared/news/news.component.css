@@ -1,6 +1,9 @@
 .box {
-    height:900px;
-    width:1250px;
+    height:350px;
+    width:800px;
     overflow:hidden;
 }
 
+.form-control {
+    border: 1px solid black;
+}
