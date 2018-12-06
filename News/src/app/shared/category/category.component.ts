@@ -10,12 +10,14 @@ import { MysqlService } from 'src/app/shared/mysql.service';
 export class CategoryComponent implements OnInit, OnChanges {
   @Output() categorySelected = new EventEmitter<string>();
   @Output() citySelected = new EventEmitter<string>();
-  
+
   categoryList = [];
-  cities: string[];
+  cities = [];
   selectedCity: string;
 
   @Input() news: News[];
+
+  show: boolean;
   
   constructor(private mysqlService: MysqlService) { }
 
@@ -33,12 +35,13 @@ export class CategoryComponent implements OnInit, OnChanges {
   }
 
   showCategory(city: string) {
+    this.show = true;
     this.selectedCity = city;
     this.mysqlService.getCategoriesByCity(city)
     .subscribe(
       (categoryResponse: any) => {
         this.categoryList = categoryResponse;
-        //this.showNews(categoryResponse);
+        this.showNews(categoryResponse);
       }
     );
   }

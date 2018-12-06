@@ -1,6 +1,6 @@
 <div class="row">
 <div class="col-xs-12 col-md-8">
-        <div class="dropdown" appDropdown>
+        <div class="dropdown" appDropdown [hidden]="show">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <a style="cursor: pointer"> <h3>Cities <span class="caret"></span></h3></a>
                 </button>
@@ -8,11 +8,11 @@
                     <li class="list-group-item" style="cursor: pointer" *ngFor="let city of cities; let i = index" (click)="showCategory(city)">{{ city }}</li>
                   </ul>
               </div>
-    <ul class="list-group">
+    <ul class="list-group" [hidden]="!show">
       <li class="list-group-item"
           style="cursor: pointer"
           *ngFor="let category of categoryList"
-          (click)="showNews(category)"
+          
       >{{ category }}</li>
     </ul>
 </div>

@@ -29,24 +29,23 @@
             </div>
             <div class="form-group">
               <label for="category">News Category</label>
-              <input 
-                type="text" 
-                id="category"
-                formControlName="category" 
-                class="form-control"
-                placeholder="Category">
+              <select class='form-control'
+              formControlName="category">                                                                
+                  <option value='Sport'>Sport</option>
+                  <option value='Zabava'>Zabava</option>
+                  <option value='Kultura'>Kultura</option>
+              </select>
               <span 
                 *ngIf="!adminForm.get('category').valid && adminForm.get('category').touched" 
                 class="help-block">Please enter a category!</span>
             </div>
             <div class="form-group">
               <label for="city">News City</label>
-              <input 
-                type="text" 
-                id="city"
-                formControlName="city" 
-                class="form-control"
-                placeholder="City">
+              <select class='form-control'
+              formControlName="city">                                                                
+                <option value='Apatin'>Apatin</option>
+                <option value='Beograd'>Beograd</option>
+              </select>
               <span 
                 *ngIf="!adminForm.get('city').valid && adminForm.get('city').touched" 
                 class="help-block">Please enter a city!</span>

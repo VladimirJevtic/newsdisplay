@@ -12,6 +12,8 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class NewsComponent implements OnInit, OnChanges {
   @Input() categoryInput: string;
   @Input() cityInput: string;
+  @Input() categoryInput2: string;
+  @Input() cityInput2: string;
 
   showNavigationArrows = false;
   showNavigationIndicators = false;
@@ -27,30 +29,32 @@ export class NewsComponent implements OnInit, OnChanges {
               }                        
 
   ngOnInit() {
-    // this.mysqlService.getNewsByCity(this.cityInput)
-    //   .subscribe(
-    //     (response: News[]) => {
-    //       this.news = response;
-    //       console.log(response); 
-          if(this.categoryInput){
-            this.showNewsByCityAndCategory();
-          }
-      //   }
-      // );
+    this.mysqlService.getNewsByCity(this.cityInput)
+      .subscribe(
+        (response: News[]) => {
+          this.news = response;
+          console.log(response); 
+         
+        }
+      );
+      //  if(this.categoryInput){
+      //       this.showNewsByCityAndCategory();
+      //  }
       
   }
 
   ngOnChanges() {
-    // this.mysqlService.getNewsByCity(this.cityInput)
-    //   .subscribe(
-    //     (response: News[]) => {
-    //       this.news = response;
-    //       console.log(response);
-            if(this.categoryInput){
-              this.showNewsByCityAndCategory();
-            }
-      //   }
-      // );   
+    this.mysqlService.getNewsByCity(this.cityInput)
+      .subscribe(
+        (response: News[]) => {
+          this.news = response;
+          console.log(response);
+            
+        }
+      );  
+      // if(this.categoryInput){
+      //   this.showNewsByCityAndCategory();
+      // } 
   }
   
   showNewsByCityAndCategory() {

@@ -7,24 +7,17 @@
     <h5>{{ singleNews.text }}</h5>
   </div>
 </div> -->
-<ngb-carousel *ngIf="news" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+<ngb-carousel *ngIf="news">
         <ng-template ngbSlide *ngFor="let singleNews of news">
-          <div>
+          <div class="slider">
             <h2>{{singleNews.title}}</h2>
             <hr>
-            <h4>{{singleNews.description}}</h4>
-            <p>{{singleNews.text}}</p>
+            <h5>{{singleNews.text}}</h5>
           </div>
           <img [src]="singleNews.pathToPicture" class="box">
           <button type="button" class="btn btn-primary" (click)="show()">Send to email</button>
         </ng-template>
 </ngb-carousel>
-      
-<hr>
-      
-<div class="btn-group" role="group" aria-label="Carousel toggle controls">
-    <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Turn on/off indicators</button>
-</div> 
 
 
   <div class="col-xs-10">

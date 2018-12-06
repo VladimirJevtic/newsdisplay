@@ -8,7 +8,7 @@ import { News } from 'src/app/shared/news/news.model';
 export class HomeComponent implements OnInit {
   categorySelectedObj: string;
   citySelectedObj: string;
-
+  
   news: News[];
 
   constructor() { }
