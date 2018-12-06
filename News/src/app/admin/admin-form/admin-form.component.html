@@ -31,9 +31,10 @@
               <label for="category">News Category</label>
               <select class='form-control'
               formControlName="category">                                                                
-                  <option value='Sport'>Sport</option>
-                  <option value='Zabava'>Zabava</option>
-                  <option value='Kultura'>Kultura</option>
+                  <option value='First choice learning centar'>First choice learning centar</option>
+                  <option value='3CP'>3CP</option>
+                  <option value='kakosidanas'>#kakosidanas</option>
+                  <option value='WCSC 2.0'>WCSC 2.0</option>
               </select>
               <span 
                 *ngIf="!adminForm.get('category').valid && adminForm.get('category').touched" 
@@ -45,6 +46,7 @@
               formControlName="city">                                                                
                 <option value='Apatin'>Apatin</option>
                 <option value='Beograd'>Beograd</option>
+                <option value='Niksic'>Niksic</option>
               </select>
               <span 
                 *ngIf="!adminForm.get('city').valid && adminForm.get('city').touched" 
