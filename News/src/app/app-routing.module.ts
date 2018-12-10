@@ -4,10 +4,10 @@ import {HomeComponent} from './home/home.component';
 import { SigninComponent } from './auth/signin/signin.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'home', loadChildren:'./admin/admin.module#AdminModule'},
+  {path: '', component: HomeComponent},
+  {path: 'admin', loadChildren:'./admin/admin.module#AdminModule'},
   {path: 'signin', component: SigninComponent},
-  { path: '**', redirectTo: 'home'}, 
+  { path: '**', redirectTo: ''}, 
 ];
 
 @NgModule({
