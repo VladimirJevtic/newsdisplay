@@ -5,7 +5,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'admin', loadChildren:'./admin/admin.module#AdminModule'},
+  {path: '', loadChildren:'./admin/admin.module#AdminModule'},
   {path: 'signin', component: SigninComponent},
   { path: '**', redirectTo: ''}, 
 ];

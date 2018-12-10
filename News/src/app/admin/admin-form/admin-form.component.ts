@@ -69,7 +69,7 @@ export class AdminFormComponent implements OnInit {
           .subscribe(
               (response: any) => {
                 this.singleNews = response;
-                this.router.navigate(['admin', 'news', 'list']);
+                this.router.navigate(['news', 'list']);
             }
           ); 
     } else {
@@ -77,7 +77,7 @@ export class AdminFormComponent implements OnInit {
           .subscribe(
               (response: any) => {
                 this.singleNews = response;
-                this.router.navigate(['admin', 'news', 'list']);
+                this.router.navigate(['news', 'list']);
               }
           );
        }

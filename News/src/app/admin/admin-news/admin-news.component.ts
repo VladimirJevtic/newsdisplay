@@ -36,7 +36,7 @@ export class AdminNewsComponent implements OnInit {
         .subscribe(
           (response: any) => {
             this.singleNews = response;
-            this.router.navigate(['admin', 'news', 'list']);
+            this.router.navigate(['news', 'list']);
           }
         );
   }
@@ -45,11 +45,11 @@ export class AdminNewsComponent implements OnInit {
     this.categorySelectedObj = category;
   }
   goToNewsProfile(id: number) {
-    this.router.navigate(['admin', 'news', id]);
+    this.router.navigate(['news', id]);
   }
 
   goToCreate() {
-    this.router.navigate(['admin', 'news', 'create']);
+    this.router.navigate(['news', 'create']);
   }
 
 }
