@@ -10,7 +10,7 @@ const adminRoute: Routes = [
       { path: 'news/list', component: AdminNewsComponent},
       { path: 'news/create', component: AdminFormComponent},
       { path: 'news/:id', component: AdminFormComponent},
-      { path: '**', redirectTo: 'news/list'},
+      //{ path: '**', redirectTo: 'news/list'},
   ]
 }
 ];
