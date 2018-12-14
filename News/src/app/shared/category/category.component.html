@@ -8,12 +8,14 @@
                     <li class="list-group-item" style="cursor: pointer" *ngFor="let city of cities; let i = index" (click)="showCategory(city)">{{ city }}</li>
                   </ul>
               </div>
-    <ul class="list-group" [hidden]="!show">
-      <li class="list-group-item"
-          style="cursor: pointer"
-          *ngFor="let category of categoryList"
-          
-      >{{ category }}</li>
+    <ul class="btn-group-vertical" [hidden]="!show">
+        <button type="button" class="btn btn-outline-danger">First choice learning centar</button>
+        <hr>
+        <button type="button" class="btn btn-outline-primary">APA BENEFITI</button>
+        <hr>
+        <button type="button" class="btn btn-outline-success">WCSC 2.0</button>
+        <hr>
+        <button type="button" class="btn btn-outline-warning">NOVISTI IZ PIVARE</button>  
     </ul>
 </div>
 </div>

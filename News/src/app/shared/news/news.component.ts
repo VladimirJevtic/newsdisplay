@@ -12,8 +12,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class NewsComponent implements OnInit, OnChanges {
   @Input() categoryInput: string;
   @Input() cityInput: string;
-  @Input() categoryInput2: string;
-  @Input() cityInput2: string;
 
   showNavigationArrows = false;
   showNavigationIndicators = false;
