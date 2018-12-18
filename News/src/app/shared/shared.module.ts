@@ -7,16 +7,18 @@ import {NewsService} from './news.service';
 import { MysqlService } from 'src/app/shared/mysql.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WeatherComponent } from './weather/weather.component';
 
 const COMPONENTS = [
   NewsComponent,
-  CategoryComponent
+  CategoryComponent,
+  WeatherComponent
 ];
 
 @NgModule({
   declarations: [
     DropdownDirective,
-    ...COMPONENTS
+    ...COMPONENTS, 
   ],
   imports: [
     CommonModule,

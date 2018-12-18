@@ -1,10 +1,8 @@
  <ngb-carousel *ngIf="news" class="carousel">
         <ng-template ngbSlide *ngFor="let singleNews of news">
-          <div class="slider">
-            <h2 (click)="show()" style="cursor: pointer">{{singleNews.title}}</h2>
-            <hr>
-            <h5>{{singleNews.text}}</h5>
-          </div>
+            <h3 (click)="show()" style="cursor: pointer">{{singleNews.title}}</h3>
+            <br>
+            <h6>{{singleNews.text}}</h6>
           <img [src]="singleNews.pathToPicture" class="box">
           <!-- <button type="button" class="btn btn-primary" (click)="show()">Send to email</button> -->
         </ng-template>

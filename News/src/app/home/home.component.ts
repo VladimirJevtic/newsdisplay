@@ -22,5 +22,5 @@ export class HomeComponent implements OnInit {
 
   onCityHandler(city: string) {
     this.citySelectedObj = city;
-  }
+  } 
 }

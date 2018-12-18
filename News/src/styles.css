@@ -1,5 +1,4 @@
- html { background-color: darkblue; }  
-
- body {
+body {
     overflow-x: hidden;
+    background-color: darkblue;
  }

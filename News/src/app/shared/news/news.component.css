@@ -10,9 +10,9 @@
     border: 1px solid black;
 }
 
-.slider {
+/* .slider {
     color: black;
-}
+} */
 
 form {
     color: white;
@@ -23,10 +23,16 @@ form {
 }
 
 .carousel {
-    width: 65%;
-    border: 3px solid black;
+    width: 70%;
+    box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.5);
     background-color: white;
     word-wrap: break-word;
+    margin-right: auto;
+}
+
+.carousel.carousel.slide{
+    width: 70%;
+    margin-right: auto;
 }
 
 * { box-sizing: border-box; }
@@ -65,9 +71,10 @@ form {
   width: 100%;
   overflow: hidden;
   height: 50px;
-  background-color: yellow; 
+  background-color: #ffd633; 
   padding-left: 100%;
   box-sizing: content-box;
+  left: 0;
 }
 .ticker {
     display: inline-block;
@@ -76,7 +83,7 @@ form {
     white-space: nowrap;
     padding-right: 100%;
     box-sizing: content-box;
-    background-color: yellow; 
+    background-color: #ffd633; 
 
     -webkit-animation-iteration-count: infinite; 
             animation-iteration-count: infinite;
@@ -89,10 +96,10 @@ form {
  }
 .ticker__item {
     display: inline-block;
-    padding: 0 350px;
+    padding: 0 450px;
     font-size: 30px;
     color: black;   
-    background-color: yellow; 
+    background-color: #ffd633; 
 }
 
 
