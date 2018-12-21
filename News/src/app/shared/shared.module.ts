@@ -8,6 +8,7 @@ import { MysqlService } from 'src/app/shared/mysql.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherComponent } from './weather/weather.component';
+import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
 
 const COMPONENTS = [
   NewsComponent,
@@ -23,7 +24,12 @@ const COMPONENTS = [
   imports: [
     CommonModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    AngularWeatherWidgetModule.forRoot({
+      key: 'e800bfa881e35f4ed26e14e83db9c5ce',
+      name: WeatherApiName.OPEN_WEATHER_MAP,
+      baseUrl: 'http://api.openweathermap.org/data/2.5'
+    })
   ],
   exports: [
     DropdownDirective,

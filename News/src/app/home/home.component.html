@@ -1,18 +1,11 @@
-<div class="container-fluid">
-<div class="row">
-<div class="col-sm-2">
-    <app-category (categorySelected)="onCategoryHandler($event)"
-    (citySelected)="onCityHandler($event)"></app-category>
+<div class="template">
+  <div class="template_left-sidebar">
+      <app-category (categorySelected)="onCategoryHandler($event)" (citySelected)="onCityHandler($event)"></app-category>
   </div>
-  
-  <div class="col-sm-7">
-      
-    <app-news *ngIf="categorySelectedObj" [categoryInput]="categorySelectedObj"
-    [cityInput]="citySelectedObj"></app-news>
-    
+  <div class="template_main">
+      <app-news *ngIf="categorySelectedObj" [categoryInput]="categorySelectedObj" [cityInput]="citySelectedObj"></app-news>
   </div>
-  <div class="col-sm-3">
-      <app-weather *ngIf="city"></app-weather>
+  <div class="template_right-sidebar">
+      <app-weather ></app-weather>
   </div>
-</div>
 </div>

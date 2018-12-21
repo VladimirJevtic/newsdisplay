@@ -1,0 +1,21 @@
+.template {
+    display: flex;
+    height: 100vh;
+    background: url('../../assets/img/bg.jpg') no-repeat center;
+    background-size: cover;
+    padding: 90px 0;
+}
+.template_left-sidebar {
+    width: 300px;
+    flex: 0 0 300px;
+    padding: 0 30px;
+}
+.template_right-sidebar {
+    width: 500px;
+    flex: 0 0 500px;
+    padding: 0 30px;
+    color: white;
+}
+.template_main {
+    width: 100%;
+}

@@ -1,0 +1,54 @@
+.logo {
+    margin-top: -60px;
+    margin-bottom: 30px;
+}
+
+.logo img{
+    height: 90px;
+    display: block;
+}
+
+.select-city {
+    display: block;
+    width: 100%;
+    position: relative;
+    line-height: 20px;
+    padding: 15px 15px;
+    background-color: #fff;
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.3);
+    text-align: left;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.select-city:after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+}
+
+.dropdown-menu {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.3);
+}
+
+.dropdown-menu .list-group-item {
+    cursor: pointer;
+}
+
+.filters {
+    margin: 0;
+    padding: 0;
+}
+
+.filters li {
+    display: block;
+    margin-bottom: 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.5);
+}

@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit, OnChanges {
         (response: News[]) => {
           this.news = response;
           console.log(response); 
-         
+          
         }
       );
       //  if(this.categoryInput){
@@ -42,14 +42,14 @@ export class NewsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.mysqlService.getNewsByCity(this.cityInput)
-      .subscribe(
-        (response: News[]) => {
-          this.news = response;
-          console.log(response);
+    // this.mysqlService.getNewsByCity(this.cityInput)
+    //   .subscribe(
+    //     (response: News[]) => {
+    //       this.news = response;
+    //       console.log(response);
             
-        }
-      );  
+    //     }
+    //   );  
       // if(this.categoryInput){
       //   this.showNewsByCityAndCategory();
       // } 
