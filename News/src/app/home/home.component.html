@@ -6,6 +6,6 @@
       <app-news *ngIf="categorySelectedObj" [categoryInput]="categorySelectedObj" [cityInput]="citySelectedObj"></app-news>
   </div>
   <div class="template_right-sidebar">
-      <app-weather ></app-weather>
+      <app-weather *ngIf="categorySelectedObj" [cityInput]="citySelectedObj"></app-weather>
   </div>
 </div>

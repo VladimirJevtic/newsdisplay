@@ -1,0 +1,19 @@
+table tr td {
+    border: solid white 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+thead th {
+    border: solid white 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.forecast {
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.5);
+}
+
+table {
+    background: url('../../../assets/img/dark-sky.jpg') no-repeat center;
+}
