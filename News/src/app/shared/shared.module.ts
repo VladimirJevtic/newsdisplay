@@ -9,11 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherComponent } from './weather/weather.component';
 import { HttpModule } from '@angular/http';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminFormComponent } from './admin/admin-form/admin-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 const COMPONENTS = [
   NewsComponent,
   CategoryComponent,
-  WeatherComponent
+  WeatherComponent,
+  AdminComponent,
+  AdminNewsComponent,
+  AdminFormComponent
 ];
 
 @NgModule({
@@ -26,6 +34,9 @@ const COMPONENTS = [
     HttpClientModule,
     HttpModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     DropdownDirective,

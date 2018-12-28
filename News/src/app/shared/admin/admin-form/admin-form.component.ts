@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {News} from '../../shared/news/news.model';
+import {News} from '../../news/news.model';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { MysqlService } from 'src/app/shared/mysql.service';
 
