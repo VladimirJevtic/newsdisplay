@@ -1,5 +1,3 @@
-<!-- <h3>Vremenska prognoza</h3> -->
-
 <div class="container">
     <h3>Vremenska prognoza za {{city?.name}}</h3> 
     <hr>        
@@ -13,13 +11,9 @@
             <th>Pressure</th>
             <th>Humidity</th>
             <th>Forecast</th>
-            <!-- <th></th> -->
           </tr>
         </thead>
         <tbody>
-          <!-- <div>
-            {{city?.main.temp - 273.15}}
-          </div> -->
           <tr >
             <td class="forecast-info forecast-0">{{today | date:'medium'}}</td>
             <td class="forecast-info forecast-1">{{(city?.main.temp_min - 273.15)}}&#8451;</td>

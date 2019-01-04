@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,13 +10,14 @@ import { map } from 'rxjs/operators';
 export class WeatherComponent implements OnInit {
 
   private apiCityUrl;
+
   @Input() cityInput: string;
-  //cities: any = {};
+
   city: string;
+
   today: number = Date.now();
 
-  constructor(private http: Http,
-              private route: ActivatedRoute) { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
     this.getCityForecast(this.cityInput);
