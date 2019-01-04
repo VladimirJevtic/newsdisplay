@@ -13,7 +13,7 @@ export class WeatherComponent implements OnInit {
 
   @Input() cityInput: string;
 
-  city: string;
+  city: any;
 
   today: number = Date.now();
 
