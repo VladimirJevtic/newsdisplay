@@ -1,13 +1,8 @@
-table tr td {
-    border: solid white 2px;
+table tr td{
+    
     text-align: center;
     vertical-align: middle;
-}
-
-thead th {
-    border: solid white 2px;
-    text-align: center;
-    vertical-align: middle;
+    border-top: none;
 }
 
 .forecast {
@@ -15,5 +10,39 @@ thead th {
 }
 
 table {
-    background: url('../../../assets/img/dark-sky.jpg') no-repeat center;
+    background: url('../../../assets/img/sky.jpg') no-repeat center;
+    border: solid black 2px;
+}
+
+.temp {
+    font-size: 100px;
+    vertical-align: middle;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.tdName {
+    vertical-align: baseline;
+}
+
+.desc {
+    text-transform: capitalize;
+    font-size: 20px;
+    vertical-align: top;
+}
+
+.name {
+    font-size: 35px;
+}
+
+
+th {
+    
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    
+}
+
+thead th {
+    border-bottom: none;
 }

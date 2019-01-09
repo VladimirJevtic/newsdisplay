@@ -1,28 +1,28 @@
-<div class="container">
-    <h3>Vremenska prognoza za {{city?.name}}</h3> 
-    <hr>        
-    <div class="forecast">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temperature min &#8451;</th>
-            <th>Temperature max &#8451;</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
-            <th>Forecast</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td class="forecast-info forecast-0">{{today | date:'medium'}}</td>
-            <td class="forecast-info forecast-1">{{(city?.main.temp_min - 273.15)}}&#8451;</td>
-            <td class="forecast-info forecast-2">{{(city?.main.temp_max - 273.15)}}&#8451;</td>
-            <td class="forecast-info forecast-3">{{city?.main.pressure}}</td>
-            <td class="forecast-info forecast-4">{{city?.main.humidity}}</td>
-            <td class="forecast-info forecast-5"><img src="https://openweathermap.org/img/w/{{city?.weather[0].icon}}.png" class="forecast-icon" alt="forecast">{{city?.weather[0].description}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="container">       
+  <div class="forecast">
+    <table class="table">
+      <thead>
+        <tr>
+          <!-- <th>Date</th>
+          <th>Temperature min &#8451;</th>
+          <th>Temperature max &#8451;</th>
+          <th>Pressure</th>
+          <th>Humidity</th>
+          <th>Forecast</th> -->
+          <th colspan="4">{{today | date:'shortTime'}}</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="name"><td colspan="4" class="tdName">{{city?.name}}</td></tr>
+          <tr class="desc"><td colspan="4">{{city?.weather[0].description}}</td></tr>
+          <tr class="temp"><td colspan="4">{{(city?.main.temp - 273.15).toFixed(0)}}&#8451;</td></tr>
+          <!-- <tr class="day"><td>{{days[date.getDay()]}}</td><td></td><td>{{(city?.main.temp_min - 273.15)}}&#8451;</td><td>{{(city?.main.temp_max - 273.15)}}&#8451;</td></tr> -->
+          <tr class="day"><td>{{days[date.getDay()]}}</td><td><img src="https://openweathermap.org/img/w/{{city?.weather[0].icon}}.png" class="forecast-icon" alt="forecast"></td><td>{{(city?.main.temp_min - 273.15)}}&#8451;</td><td>{{(city?.main.temp_max - 273.15)}}&#8451;</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+
+<!-- {{today | date:'medium'}} -->
+<!-- {{(city?.main.temp_min - 273.15)}}&#8451; -->

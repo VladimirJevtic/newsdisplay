@@ -17,6 +17,10 @@ export class WeatherComponent implements OnInit {
 
   today: number = Date.now();
 
+  date = new Date();
+
+  days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
   constructor(private http: Http) { }
 
   ngOnInit() {

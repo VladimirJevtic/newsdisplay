@@ -11,11 +11,12 @@
     padding: 0 30px;
 }
 .template_right-sidebar {
-    width: 750px;
-    flex: 0 0 750px;
-    padding: 0 30px;
+    width: 350px;
+    flex: 0 0 650px;
+    padding: 0 150px;
     color: white;
 }
 .template_main {
     width: 100%;
+    padding: 0 40px;
 }
