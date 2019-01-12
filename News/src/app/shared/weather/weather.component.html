@@ -15,7 +15,7 @@
       <tbody>
           <tr class="name"><td colspan="4" class="tdName">{{city?.name}}</td></tr>
           <tr class="desc"><td colspan="4">{{city?.weather[0].description}}</td></tr>
-          <tr class="temp"><td colspan="4">{{(city?.main.temp - 273.15).toFixed(0)}}&#8451;</td></tr>
+          <tr class="temp"><td colspan="4">{{((city?.main.temp).toFixed(0) - 273).toFixed(0)}}&#8451;</td></tr>
           <!-- <tr class="day"><td>{{days[date.getDay()]}}</td><td></td><td>{{(city?.main.temp_min - 273.15)}}&#8451;</td><td>{{(city?.main.temp_max - 273.15)}}&#8451;</td></tr> -->
           <tr class="day"><td>{{days[date.getDay()]}}</td><td><img src="https://openweathermap.org/img/w/{{city?.weather[0].icon}}.png" class="forecast-icon" alt="forecast"></td><td>{{(city?.main.temp_min - 273.15)}}&#8451;</td><td>{{(city?.main.temp_max - 273.15)}}&#8451;</td></tr>
       </tbody>

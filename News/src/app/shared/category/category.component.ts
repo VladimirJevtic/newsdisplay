@@ -25,7 +25,16 @@ export class CategoryComponent implements OnInit, OnChanges {
     this.mysqlService.getCities()
       .subscribe(
         (response: any) => {
-          this.cities = response;
+          console.log(response);
+          for (let ele of response) {
+            ele = ele.replace(/^[ ]+|[ ]+$/g,'')
+            this.cities.push(ele);
+          }
+          this.cities = this.cities.map(function (c) {
+            return c.split(",")
+         })
+            .reduce(function (a, b) { return a.concat(b) }, [])
+            .filter(function (v, i, a) { return a.indexOf(v) === i });
         }
       );
     

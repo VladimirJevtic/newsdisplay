@@ -27,12 +27,23 @@ export class NewsComponent implements OnInit, OnChanges {
               }                        
 
   ngOnInit() {
-    this.mysqlService.getNewsByCity(this.cityInput)
+    // this.mysqlService.getNewsByCity(this.cityInput)
+    //   .subscribe(
+    //     (response: News[]) => {
+    //       this.news = response;
+    //       console.log(response); 
+          
+    //     }
+    //   );
+    this.mysqlService.getAll()
       .subscribe(
         (response: News[]) => {
-          this.news = response;
+          let arr = response;
+          this.news = arr.filter(obj => {
+            return obj.city.includes(this.cityInput);
+          })
           console.log(response); 
-          
+          console.log(this.news);
         }
       );
       //  if(this.categoryInput){

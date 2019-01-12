@@ -6,6 +6,7 @@
 .logo img{
     height: 90px;
     display: block;
+    background-color: #fff;
 }
 
 .select-city {
