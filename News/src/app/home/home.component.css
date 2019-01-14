@@ -6,20 +6,17 @@
     padding: 90px 0;
 }
 .template_left-sidebar {
-    max-width: 100%;
     width: 300px;
     flex: 0 0 300px;
     padding: 0 30px;
 }
 .template_right-sidebar {
-    max-width: 100%;
     width: 350px;
-    flex: 0 0 650px;
+    flex: 0 0 450px;
     padding: 0 150px;
     color: white;
 }
 .template_main {
-    max-width: 100%;
     width: 100%;
     padding: 0 40px;
 }

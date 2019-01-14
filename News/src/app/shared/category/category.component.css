@@ -3,6 +3,10 @@
     margin-bottom: 30px;
 }
 
+.nav-link {
+    color: #fff;
+}
+
 .logo img{
     height: 90px;
     display: block;

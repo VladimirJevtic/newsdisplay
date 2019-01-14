@@ -2,7 +2,6 @@ import { MysqlService } from 'src/app/shared/mysql.service';
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { News } from 'src/app/shared/news/news.model';
-import { NewsService } from 'src/app/shared/news.service';
 
 @Component({
   selector: 'app-admin-news-edit',
@@ -36,7 +35,7 @@ export class AdminNewsComponent implements OnInit {
         .subscribe(
           (response: any) => {
             this.singleNews = response;
-            this.router.navigate(['news', 'list']);
+            this.router.navigate(['admin','news', 'list']);
           }
         );
   }
@@ -45,11 +44,11 @@ export class AdminNewsComponent implements OnInit {
     this.categorySelectedObj = category;
   }
   goToNewsProfile(id: number) {
-    this.router.navigate(['news', id]);
+    this.router.navigate(['admin','news', id]);
   }
 
   goToCreate() {
-    this.router.navigate(['news', 'create']);
+    this.router.navigate(['admin','news', 'create']);
   }
 
 }

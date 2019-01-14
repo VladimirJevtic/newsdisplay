@@ -27,14 +27,6 @@ export class NewsComponent implements OnInit, OnChanges {
               }                        
 
   ngOnInit() {
-    // this.mysqlService.getNewsByCity(this.cityInput)
-    //   .subscribe(
-    //     (response: News[]) => {
-    //       this.news = response;
-    //       console.log(response); 
-          
-    //     }
-    //   );
     this.mysqlService.getAll()
       .subscribe(
         (response: News[]) => {
@@ -45,36 +37,11 @@ export class NewsComponent implements OnInit, OnChanges {
           console.log(response); 
           console.log(this.news);
         }
-      );
-      //  if(this.categoryInput){
-      //       this.showNewsByCityAndCategory();
-      //  }
-      
+      ); 
   }
 
-  ngOnChanges() {
-    // this.mysqlService.getNewsByCity(this.cityInput)
-    //   .subscribe(
-    //     (response: News[]) => {
-    //       this.news = response;
-    //       console.log(response);
-            
-    //     }
-    //   );  
-      // if(this.categoryInput){
-      //   this.showNewsByCityAndCategory();
-      // } 
+  ngOnChanges() { 
   }
-  
-  showNewsByCityAndCategory() {
-    this.mysqlService.getNewsByCityAndCategory(this.cityInput, this.categoryInput)
-        .subscribe(
-          (response: News[]) => {
-            this.news = response;
-            console.log(response);
-          }
-        );
-    }
 
     show() {
       this.send = true;

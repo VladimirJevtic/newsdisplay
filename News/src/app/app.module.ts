@@ -8,6 +8,7 @@ import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
 import {NewsService} from './shared/news.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MysqlService } from './shared/mysql.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     NgbModule
   ],
-  providers: [NewsService],
+  providers: [NewsService, MysqlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
